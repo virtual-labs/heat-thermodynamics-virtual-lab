@@ -1,0 +1,93 @@
+/**
+	*Description:This is for put style on canvas contents and controls
+	*Color Reference:
+	*white: #ffffff
+    *black: #373737
+*/
+#showResultTxtcross,#showResultTxt {
+	margin:-12% 0 5% 28%
+}
+
+#material {
+	margin:0 0 0 10%
+}
+
+.slider {
+	margin:39px 0 0
+}
+
+.box {
+	margin:43px 0 50px 19px
+}
+
+#crossSectionChkBox,#resultChkBox {
+	margin:17px 7px 13px 42px;
+	padding:4px 4px 4px 31px
+}
+
+.resultClass {
+	margin:17px 3px 3px 16px
+}
+
+.textIndend {
+	margin:13px 0 -1px 25px;
+	font-size:13px;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:700;
+	color:#373737;
+	height:14px;
+	display:table;
+	word-wrap:break-word;
+	width:84%;
+	text-align:left!important;
+	table-layout:fixed;
+	word-wrap:break-word
+}
+
+#minimumRange {
+	padding-left:10px!important
+}
+
+#maximumRange {
+	padding-right:45px!important
+}
+
+#showResult {
+	margin:0 34px 3px -23px;
+	font-size:13px
+}
+
+#result {
+	position:absolute;
+	font-size:13px;
+	left:76px;
+	display:none
+}
+
+.checkBoxClass {
+	margin:13px 5% 1% 20%
+}
+
+#dropdown {
+	margin:15px 0 0 24px;
+	width:70%;
+	padding:3% 0 2% 2%
+}
+
+#boxSide,#boxHeight,#cylinderDiameter,#cylinderLength,#cylinderthickness {
+	margin:5% 0 0 11%!important
+}
+
+#poweronBtn {
+	cursor:pointer;
+	margin:11% 0 4% 12%;
+	width:74%
+}
+
+!important
+#crossSectionChkBox {
+	margin:38px 0 0 25px!important
+}
+#heat_value{
+	margin:-43px 9px 40px 185px !important;
+}

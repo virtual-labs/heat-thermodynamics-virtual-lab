@@ -1,0 +1,98 @@
+/**
+    *Description:This is for put style on canvas contents and controls
+	*Color Reference:
+	*white: #FFFFFF
+	*Grey : #373737	
+*/
+#start {
+	cursor: pointer;
+	margin: 237px 0px 212px 40px;
+	width:74%;
+	padding: 3% 20%;
+}
+.menuContainer{
+	display:none;
+	}
+.textIndend {
+	margin: 27px 0px -2px 42px;
+	font-size: 13px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #373737;
+	height: 14px;
+ 	display: table;
+  	word-wrap: break-word;
+	   width: 82%;
+   text-align: left !important;
+   table-layout: fixed;
+   word-wrap: break-word;
+}
+.chkBoxText {
+	
+		margin: -17px 0px 19px 67px;
+	font-size: 13px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #373737;
+	height: 14px;
+ 	display: table;
+  	word-wrap: break-word;
+	   width: 74%;
+   text-align: left !important;
+   table-layout: fixed;
+   
+   
+/*	margin-left: -104px;
+	margin-top: -28px;
+	margin-left: -39px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #373737;
+	height: 14px;*/
+}
+
+#checkBox {
+	margin: 17px 7px 13px 42px;
+	padding: 4px 4px 4px 31px;
+}
+#materialSubstancedropdwn, #liquidDropDown {
+	margin: 17px 0px 0px 42px;
+    width: 70%;
+    padding: 3% 0% 2% 2%;
+}
+#startheat {
+	cursor: pointer;
+	margin: 34px 0px 0px 40px;
+	width: 72%;
+}
+#reset {
+	margin: 34px 0px 0px 40px;
+	cursor: pointer;
+	width: 72%;
+}
+#showgraph {
+	position: absolute;
+	top: 207%;
+	left: 13%;
+	cursor: pointer;
+}
+#plotgraph {
+	margin: 25px 0px 32px 41px;
+	width: 72%;
+	cursor: pointer;
+}
+#graphShowDiv {
+	position: absolute !important;
+	display: none;
+	width: 38%;
+	height: 41%;
+	top: 25% !important;
+	left: 4% !important;
+	background-color: #FFFFFF;
+}
+#showResultTxt {
+/*	margin: -15px 0px 20px -71px;
+*/}
+#graphchek {
+	margin: 38px 0px 0px 43px;
+}

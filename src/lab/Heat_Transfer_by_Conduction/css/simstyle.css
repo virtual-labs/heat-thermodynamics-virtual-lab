@@ -1,0 +1,111 @@
+/**
+	*Description:This is for put style on canvas contents and controls
+	*Color Reference:
+	*white: #ffffff
+    *black: #373737
+*/
+.slider {
+	margin: 39px 0px 0px 0px;
+}
+.box {
+	margin: 43px 0px 50px 19px;
+}
+#poweronBtn {
+	margin: 27px 0px 8px 19px;
+    cursor: pointer;
+    width: 74%;
+}
+.nrmlChkBox {
+	margin: 17px 7px 13px 42px;
+	padding: 4px 4px 4px 31px;
+}
+#showResultTxt {
+	margin: -28px 47px 8px 75px !important;    
+}
+#showCrossSection {
+	margin: -28px 0px 8px 75px !important;
+     
+}
+.checkboxText {
+    font-size: 13px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+    color: #373737;
+    height: 14px;
+    display: table;
+    word-wrap: break-word;
+    width: 74%;
+    text-align: left !important;
+    table-layout: fixed;
+}
+.textIndend {
+	margin: 20px 9px 0px 17px;
+	font-size: 13px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #373737;
+	height: 14px;
+    display: table;
+    word-wrap: break-word;
+    width: 90%;
+    text-align: left !important;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+#result {
+	margin: -8px 9px 0px 17px;
+}
+#warning {
+    font-size: 13px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    color: #373737;
+    height: 14px;
+    margin: -31px 0px 0px 40px;
+    display: none;
+}
+#warningImg {
+	left: 34px;
+	width: 261px;
+	display: none;
+}
+#minimumRange {
+	padding-left: 3px !important;
+}
+#maximumRange {
+	padding-right: 45px !important;
+}
+#showResult {
+	margin: 0px 34px 3px -23px;
+	font-size: 13px;
+}
+#dropdown {
+    margin:20px 0px 0px 18px;
+    width: 70%;
+    padding: 3% 0% 2% 2%;
+}
+.sliderIndent {
+	cursor: pointer;
+	margin: 6% 0% 0% 7% !important;
+}
+.captions {
+	position: relative;
+	left: 10px;
+	top: 10px;
+	z-index: 999;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+}
+.captions * {
+	position: absolute;
+}
+@media (max-width: 1023px) {
+#canvasBox .buttons {
+	background: #ffffff !important;
+	padding: 2% 3% !important;
+	margin: 3px !important;
+}
+.checkBoxClass {
+	margin: 13px 5% 1% 20%;
+}
