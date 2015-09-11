@@ -496,6 +496,10 @@ function startExperiment() {
 	selectedMaterial = removeTextSpace(materialArrayTranslate[($("#dropdown").find("option:selected").index())]);
 	thermal_conductivity = thermalConductivity[selectedMaterial];
 	$("#dropdown").prop("disabled", true); /** Drop down disabled */
+    $("#slider1,#slider2,#slider3").attr('disabled', 'disabled').css({
+        "opacity": 0.5,
+        "cursor": "default"
+    });
 	/** Check the GH and MH voltage, show warning if their value not equal */
 	if (gh_voltage_int != mh_voltage_int) {
 		$("#warning,#warningImg").css("display", "block");
@@ -571,6 +575,10 @@ function resetExperiment() {
 	$("#crossSectionCheckbox").prop("checked", false); /** Check box reset */
 	$("#dropdown").prop("disabled", false); /** Drop down enabled */
 	$('#dropdown').find('option:first').attr('selected', 'selected'); /** Resetting drop down value to 'Cardboard' */
+    $("#slider1,#slider2,#slider3").removeAttr('disabled').css({
+        "opacity": 1,
+        "cursor": "default"
+    });
 }
 
 /** Function for the rotation of temperature indicator */

@@ -634,7 +634,12 @@ function startExperiment() {
     convection_stage.getChildByName("lighton").visible = true;
     convection_stage.getChildByName("lightOff").visible = false;
     document.getElementById("dropdown").disabled = true;
-    resetSliders();
+	/** Disabling sliders */
+	document.getElementById("boxSide").disabled = true;
+    document.getElementById("boxHeight").disabled = true;
+    document.getElementById("cylinderDiameter").disabled = true;
+    document.getElementById("cylinderLength").disabled = true;
+    document.getElementById("cylinderthickness").disabled = true;
     convection_stage.getChildByName("start").text = _("STOP");
     $("#poweronBtn").val(_("Reset"));
     if (voltage > 0) {

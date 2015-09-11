@@ -501,6 +501,10 @@ function bpRotation() {
 function startExperiment() {
 	power_on_flag = true;
     $("#dropdown").prop("disabled", true); /** Drop down disabled */
+    $("#slider1,#slider2,#slider3").attr('disabled', 'disabled').css({
+        "opacity": 0.5,
+        "cursor": "default"
+    });
 	/** Check the BP and TP voltage, show warning if their value not equal */
 	if (bp_voltage_int != tp_voltage_int) { 
 		$("#warning").css("display", "block");
@@ -571,6 +575,10 @@ function resetExperiment() {
 	$("#graphchek").prop("checked", false); /** Check box reset */
     $("#dropdown").prop("disabled", false); /** Drop down enabled */
     $('#dropdown').find('option:first').attr('selected', 'selected'); /** Resetting drop down value to 'Aluminium' */
+    $("#slider1,#slider2,#slider3").removeAttr('disabled').css({
+        "opacity": 1,
+        "cursor": "default"
+    });
 }
 
 /** Function for the rotation of temperature indicator */
@@ -692,13 +700,17 @@ function totalEmissivityCalculation() {
 	/** Emissivity calculation */
 	total_emissivity = (1 * ((Math.pow(_blackplate_temp, 4) - _temperature_power) / (Math.pow(_temperature_of_plate, 4) - _temperature_power))).toFixed(2);
 
-	if (isNaN(total_emissivity)) {
+	if ( isNaN(total_emissivity) ) {
 		total_emissivity = 0;
 	}
-	$("#result").html(_("Emissivity of the test plate:") + " " + total_emissivity);
+    if ( voltage_int==0 ) {
+        $("#result").html(_("Emissivity of the test plate:") + " " +total_emissivity);
+    } else {
+        $("#result").html(_("Emissivity of the test plate:") + " " + emissivity_float);
+    }
 	temperature_one = (_blackplate_temp - 273.15);/** 0 degree= 273.15 K */
 	temperature_two = (_temperature_of_plate - 273.15);
-	if (frequency == 0) { /** If frequency W= V*I is 0, the temperatures initial value is 27 */
+	if ( frequency == 0 ) { /** If frequency W= V*I is 0, the temperatures initial value is 27 */
 		temperature_one = 27;
 		temperature_two = 27;
 	}

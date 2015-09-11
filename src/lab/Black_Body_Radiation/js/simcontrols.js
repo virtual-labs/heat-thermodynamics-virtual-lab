@@ -140,10 +140,14 @@ function initialisationOfVariables() {
     }); /** Disable the fit disc button */
     $("#checkBox").prop("checked", false); /** Resetting the check box */
     $("#t1Rdo").prop("checked", true); /** Resetting the radio button */
-	 $("#waterTemp").html(waterLabel+" "+35+" (℃)"); 
+	$("#waterTemp").html(waterLabel+" "+35+" (℃)");
 	$("#surroundTemp").html(surroundLabel+" "+20+" (℃)");
 	$("#discMass").html(discMassLabel+" "+5+_("g"));
     $("#discRadius").html(radiusLabel+" "+3+_("cm"));
+    $("#waterSlider").val(35);
+    $("#surroundSlider").val(20);
+    $("#massSlider").val(5);
+    $("#radiusSlider").val(3);
     $("#tempValue").html(radioVal+" : "+surround_temp + " ℃");
 }
 
@@ -192,7 +196,7 @@ function controlsHandle() {
 	waterLabel=_("Water Temperature ");
 	surroundLabel=_("Surrounding Temperature ");
 	radiusLabel=_("Radius of Disc ");
-	 $("#waterTemp").html(waterLabel+" "+35+" ℃"); 
+	$("#waterTemp").html(waterLabel+" "+35+" ℃"); 
     $("#surroundTemp").html(surroundLabel+" "+20+" ℃");
 	discMassLabel=_("Mass of Disc ")
     $("#discMass").html(discMassLabel+" "+5+_("g"));
@@ -395,37 +399,34 @@ function resetExperiment() {
 /** Water temperature slider changing function */
 function waterTempSliderFN() {
     water_temp_float = $("#waterSlider").val();
+    $("#waterTemp").html(waterLabel+" "+$("#waterSlider").val()+" ℃"); 
     steadyTemperatureCalculation(); /** Calculation of steady temperature with the water slider value */
 	/** Calculation of time interval and conversion of degree to kelvin. 0 degree=273.15 kelvin. 2.5 and 5 are for adjusting the time interval */
     time_interval_float = ((steady_temp - kelvin) + 2.5) / 5; 
 	/** If the water slider value is greater than surround slider value, Set the water slider value 
 	and the water input value as surround slider value*/
-    if ($("#waterSlider").val() <= $("#surroundSlider").val()) {
+    if ( Number($("#waterSlider").val()) <= Number($("#surroundSlider").val()) ) {    
         $("#waterSlider").val($("#surroundSlider").val()); 
 		$("#waterTemp").html(waterLabel+" "+$("#surroundSlider").val()+" ℃");
-    } else if ($("#waterSlider").val() >= $("#surroundSlider").val()) {
+    } else if ( $("#waterSlider").val() >= $("#surroundSlider").val() ) {
 		/** Else set the water input value as water slider value */
-        $("#waterTemp").html(waterLabel+" "+$("#surroundSlider").val()+" ℃"); 
+        $("#waterTemp").html(waterLabel+" "+$("#waterSlider").val()+" ℃"); 
     }
 	/** Steady temperature calculation with the water slider value */
     steadyTempCalculationPerSec();
-	 $("#waterTemp").html(waterLabel+" "+$("#surroundSlider").val()+" ℃"); 
 }
 
 /** Surround temperature slider changing function */
 function surroundTempSliderFN() {
     surround_temp = $("#surroundSlider").val();
     steadyTemperatureCalculation(); /** Calculation of steady temperature with the surround slider value */
-    time_interval_float = Math.abs((steady_temp - kelvin) + 2.5);
-	
+    time_interval_float = Math.abs((steady_temp - kelvin) + 2.5);	
 	/** Check whether the surround slider value is greater than water slider value,
 	Set the surround input value and surround slider as water slider value */
     if ($("#surroundSlider").val() >= $("#waterSlider").val()) { 
-	  $("#surroundTemp").html(surroundLabel+" "+$("#waterSlider").val()+" ℃");
+        $("#surroundTemp").html(surroundLabel+" "+$("#waterSlider").val()+" ℃");
         $("#surroundSlider").val($("#waterSlider").val());  
-		  } 
-	/** Else set the surround input value as surround slider value */
-	else if ($("#surroundSlider").val() <= $("#waterSlider").val()) {
+	} else if ($("#surroundSlider").val() <= $("#waterSlider").val()) { /** Else set the surround input value as surround slider value */
 		$("#surroundTemp").html(surroundLabel+" "+$("#surroundSlider").val()+" ℃");
     }
 	 /** Steady temperature calculation with the surround slider value */
