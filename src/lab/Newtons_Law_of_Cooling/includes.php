@@ -10,9 +10,9 @@
 
   <link  href="template/vlab_resp/css/controlStyles.css" rel="stylesheet" type="text/css" />
   <link  href="<?php getSimCss('simstyle.css'); ?>" rel="stylesheet" type="text/css" />
-  <script src="template/vlab_resp/js/jquery-ui-1.8.17.custom.min.js" language="javascript"></script>
-  <script src="template/vlab_resp/js/createjs-2013.12.12.min.js"></script>
-  <script src="js/jquery.flot.js" language="javascript"></script>
+  <script src="../template/vlab_resp/js/jquery-ui-1.8.17.custom.min.js" language="javascript"></script>
+  <script src="../template/vlab_resp/js/createjs-2013.12.12.min.js"></script>
+  <script src="../../lib/js/jquery.flot.js" language="javascript"></script>
   <?php 
 	$language=$_GET['elink_lan'];
 	$locale = array("en-IN","ml-IN","hi-IN");
