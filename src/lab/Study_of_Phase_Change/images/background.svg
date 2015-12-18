@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="713.5px" height="705px" viewBox="0 0 713.5 705" enable-background="new 0 0 713.5 705" xml:space="preserve">
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="362.4502" cy="607.75" r="370.075" gradientTransform="matrix(1 0 0 1.3193 0 -194.03)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#515151"/>
+		<stop  offset="1" style="stop-color:#090909"/>
+	</radialGradient>
+	<rect y="522.45" fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_1_)" width="714.05" height="184"/>
+	
+		<radialGradient id="SVGID_2_" cx="362.4502" cy="607.75" r="370.075" gradientTransform="matrix(1 0 0 1.3193 0 -194.03)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#515151"/>
+		<stop  offset="1" style="stop-color:#090909"/>
+	</radialGradient>
+	<rect y="522.45" fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_2_)" width="714.05" height="184"/>
+	
+		<radialGradient id="SVGID_3_" cx="384.75" cy="210.7998" r="451.475" gradientTransform="matrix(1 0 0 1.3192 0 -67.2939)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#568A8F"/>
+		<stop  offset="1" style="stop-color:#131F20"/>
+	</radialGradient>
+	<rect fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_3_)" width="714.05" height="522.45"/>
+	
+		<radialGradient id="SVGID_4_" cx="384.75" cy="210.7998" r="451.475" gradientTransform="matrix(1 0 0 1.3192 0 -67.2939)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#568A8F"/>
+		<stop  offset="1" style="stop-color:#131F20"/>
+	</radialGradient>
+	<rect fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_4_)" width="714.05" height="522.45"/>
+</g>
+</svg>
