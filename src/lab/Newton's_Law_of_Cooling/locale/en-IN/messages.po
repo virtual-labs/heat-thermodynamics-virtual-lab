@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d\n"
 "POT-Creation-Date: 2015-10-27 14:49+0530\n"
-"PO-Revision-Date: 2015-10-31 15:36+0530\n"
+"PO-Revision-Date: 2015-12-29 12:52+0530\n"
 "Last-Translator: \n"
 "Language-Team: d\n"
 "Language: hi\n"
@@ -17,19 +17,19 @@ msgstr ""
 
 #: experiment.js:126 experiment.js:274 experiment.js:295
 msgid "START"
-msgstr "START"
+msgstr "Start"
 
 #: experiment.js:137
 msgid "help1"
-msgstr "Click on the Start Experiment button to start the experiment"
+msgstr "Click on the 'Start Experiment' button to start the experiment"
 
 #: experiment.js:137
 msgid "help2"
-msgstr "Click on the start/stop heating button for heating and cooling "
+msgstr "Click on the Start/Stop heating button for heating and cooling "
 
 #: experiment.js:137
 msgid "help3"
-msgstr "Click on the reset button to Reset the experiment"
+msgstr "Click on the 'Reset' button to reset the experiment"
 
 #: experiment.js:137
 msgid "Next"

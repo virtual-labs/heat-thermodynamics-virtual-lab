@@ -33,45 +33,29 @@
  $scope.showActionToast = function() {
     var toast = $mdToast.simple()
           .content(helpArray[0])
-          .action(helpArray[5])
+          .action(helpArray[3])
 		   .hideDelay(15000)
           .highlightAction(false)
           .position($scope.getToastPosition());
 		  
 	 var toast1 = $mdToast.simple()
           .content(helpArray[1])
-          .action(helpArray[5])
+          .action(helpArray[3])
 		   .hideDelay(15000)
           .highlightAction(false)
           .position($scope.getToastPosition());
 		  
   var toast2 = $mdToast.simple()
           .content(helpArray[2])
-          .action(helpArray[5])
+          .action(helpArray[4])
 		   .hideDelay(15000)
           .highlightAction(false)
 		    .position($scope.getToastPosition());
-	 var toast3 = $mdToast.simple()
-          .content(helpArray[3])
-          .action(helpArray[5])
-		   .hideDelay(15000)
-          .highlightAction(false)
-		    .position($scope.getToastPosition());
-	 var toast4 = $mdToast.simple()
-          .content(helpArray[4])
-          .action(helpArray[6])
-		   .hideDelay(15000)
-          .highlightAction(false)
-		  
-		    .position($scope.getToastPosition());
+	 
    	 
 		  $mdToast.show(toast).then(function() {
 			   $mdToast.show(toast1).then(function() {
-				   $mdToast.show(toast2).then(function() {
-					    $mdToast.show(toast3).then(function() {
-							 $mdToast.show(toast4).then(function() {
-			 				 });
-			  			});
+				   $mdToast.show(toast2).then(function() {					   
 			  		});
 			  	});
 			 });	
