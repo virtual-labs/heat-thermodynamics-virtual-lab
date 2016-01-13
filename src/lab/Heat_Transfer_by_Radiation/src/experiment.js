@@ -4,9 +4,7 @@
        .directive("experiment",directiveFunction)
 })();
 
-var radiation_stage,exp_canvas;
-
-var tp_angle_float,bp_angle_float,diameter_val_float,thickness_val_float,temperature_val;
+var radiation_stage,tp_angle_float,bp_angle_float,diameter_val_float,thickness_val_float,temperature_val;
 
 var stefan_boltzmann_constant,emissivity_float,radius_float,thickness_float,area_float;
 
@@ -14,15 +12,15 @@ var volt_needle_rotate_tp,ammeter_needle_rotate_tp,volt_needle_rotate_bp,ammeter
 
 var indicator_rotation_count,indicator_text_count,power_on_flag;
 
-var timer_check,power_btn_var,power_off_btn_var,reset_btn_var,selectedMaterial,type;
+var timer_check,power_btn_var,power_off_btn_var,reset_btn_var,selected_material,type;
 
-var tick; /** Stage update timer */
+var tick, timer_interval; /** Stage update timer */
 
-var materialArray = materialItemArray=[];
+var material_array = material_item_array = help_array = [];
 
 var tp_power_int,tp_voltage_int,tp_current_int,bp_power_int,bp_voltage_int,bp_current_int;
 
-var resultant_temp,seconds,minute,hour,seconds_refer,initial_temp1,initial_temp2;
+var resultant_temp,initial_temp1,initial_temp2;
 
 var tp_count,bp_count,emissivity_blackbody,t4_chamber_temp,t1_to_t3_blackbody_temp,t5_to_t7_testplate_temp;
 
@@ -61,18 +59,14 @@ function directiveFunction(){
             } else {
                 element[0].offsetWidth = element[0].offsetWidth;
                 element[0].offsetHeight = element[0].offsetWidth;
-            }
-            exp_canvas=document.getElementById("demoCanvas");
-            exp_canvas.width=element[0].width;
-            exp_canvas.height=element[0].height;   
-    
+            }    
             queue = new createjs.LoadQueue(true);
             queue.installPlugin(createjs.Sound);
             queue.on("complete", handleComplete, this);
             queue.loadManifest([
             {
                 id: "background",
-                src: "././images/background-01.svg",
+                src: "././images/background.svg",
                 type: createjs.LoadQueue.IMAGE
             }, {
                 id: "commonDisc",
@@ -105,18 +99,6 @@ function directiveFunction(){
             }, {
                 id: "wires",
                 src: "././images/wires.svg",
-                type: createjs.LoadQueue.IMAGE
-            }, {
-                id: "stopWatch",
-                src: "././images/stopwatch.svg",
-                type: createjs.LoadQueue.IMAGE
-            }, {
-                id: "redButton",
-                src: "././images/redbutton.svg",
-                type: createjs.LoadQueue.IMAGE
-            }, {
-                id: "greenButton",
-                src: "././images/greenbutton.svg",
                 type: createjs.LoadQueue.IMAGE
             }, {
                 id: "indicatorSelectorSwitch",
@@ -190,9 +172,6 @@ function directiveFunction(){
                 loadImages(queue.getResult("aluminium"),"aluminiumInner",400,540,"",0);
                 loadImages(queue.getResult("aluminium"),"aluminium",400,540,"",0);  
                 loadImages(queue.getResult("wires"),"wireOne",95,495,"",0);
-                loadImages(queue.getResult("stopWatch"),"stopWatch",150,331,"",0);
-                loadImages(queue.getResult("redButton"),"redButton",255,405,"",0);
-                loadImages(queue.getResult("greenButton"),"greenButton",273,405,"",0);
                 loadImages(queue.getResult("needle"),"aNeedle",293,252,"",0);
                 loadImages(queue.getResult("needle"),"vNeedle",163,253,"",0);                
                 loadImages(queue.getResult("indicatorSelectorSwitchBase"),"indicatorSelectorSwitchBase",394,240,"",0);                
@@ -212,20 +191,18 @@ function directiveFunction(){
                 loadImages(queue.getResult("indicatorArrow"),"indicatorBkdArrow",365,252,'pointer',180);
                 loadImages(queue.getResult("glasseffect"),"glassEffect",18,160,"",0);
                 /** Textbox loading */
-                setText("indicatorTimer",350,205,"27.00","white",1.2);  
-                setText("stopWatchValHr",170,391,"00","black",1.5);
-                setText("stopWatchValMin",206,391,"00","black",1.5);
-                setText("stopWatchValSec",246,391,"00","black",1.5);
+                setText("indicatorTimer",350,205,"","white",1.2); 
                 setText("voltmeterReading",120,303,"0","black",1.4);
                 setText("ammeterReading",250,303,"0","black",1.4);
                 setText("indicatorReading",380,303,"","black",1.4);
-                setText("watchStartStop",180,418,"","black",1.2);    
-                initialisationOfVariables(); /** Initializing the variables */
+				initialisationOfVariables(); /** Initializing the variables */
+				 
+                createStopwatch(radiation_stage, 50,302,timer_interval);                  
                 initialisationOfImages(); /** Function call for images used in the apparatus visibility */
                 translationLabels(); /** Translation of strings using gettext */
                 getDiscName(); /** Initial visibility of all the disc except aluminium set as false */
 
-                materialItemArray=["aluminium","brass","iron","steel","copper","aluminiumInner","brassInner","ironInner","steelInner","copperInner"]; /** Array stores the collectionb of materials used for visibility */                                
+                material_item_array=["aluminium","brass","iron","steel","copper","aluminiumInner","brassInner","ironInner","steelInner","copperInner"]; /** Array stores the collectionb of materials used for visibility */                                
             
                 radiation_stage.getChildByName("motorOff").on("click", function() { /** Motor switch on functionality */
                     scope.powerOnBtn(); /** Start the experiment with respect to the power on button */
@@ -283,7 +260,7 @@ function directiveFunction(){
             /** Add all the strings used for the language translation here. '_' is the short cut for calling the gettext function defined in the gettext-definition.js */   
             function translationLabels(){
                 /** This help array shows the hints for this experiment */
-                helpArray=[_("help1"),_("help2"),_("help3"),_("help4"),_("help5"),_("help6"),_("help7"),_("Next"),_("Close")];
+                help_array=[_("help1"),_("help2"),_("help3"),_("help4"),_("help5"),_("help6"),_("help7"),_("Next"),_("Close")];
                 scope.heading=_("Heat Transfer by Radiation");
                 scope.variables=_("Variables");                             
                 scope.choose_material=_("Choose Material:");
@@ -299,8 +276,8 @@ function directiveFunction(){
                 scope.measurement=_("Measurements");                
                 scope.emissivity=_("Emissivity of the test plate:");
                 scope.copyright=_("copyright"); 
-                /** The materialArray contains the values and indexes of the dropdown */
-                scope.materialArray = [{material:_('Aluminium'),type:0},{material:_('Brass'),type:1},{material:_('Iron'),type:2},{material:_('Steel'),type:3},{material:_('Copper'),type:4}];                
+                /** The material_array contains the values and indexes of the dropdown */
+                scope.material_array = [{material:_('Aluminium'),type:0},{material:_('Brass'),type:1},{material:_('Iron'),type:2},{material:_('Steel'),type:3},{material:_('Copper'),type:4}];                
                 scope.$apply();             
             }            
         }
@@ -314,14 +291,14 @@ function updateTimer() {
 
 /** All the texts loading and added to the stage */
 function setText(name, textX, textY, value, color, fontSize){
-    var text = new createjs.Text(value, "bold " + fontSize + "em Tahoma, Geneva, sans-serif", color);
-    text.x = textX;
-    text.y = textY;
-    text.textBaseline = "alphabetic";
-    text.name = name;
-    text.text = value;
-    text.color = color;
-    radiation_stage.addChild(text); /** Adding text to the stage */
+    var _text = new createjs.Text(value, "bold " + fontSize + "em Tahoma, Geneva, sans-serif", color);
+    _text.x = textX;
+    _text.y = textY;
+    _text.textBaseline = "alphabetic";
+    _text.name = name;
+    _text.text = value;
+    _text.color = color;
+    radiation_stage.addChild(_text); /** Adding text to the stage */
 }
 
 /** All the images loading and added to the stage */
@@ -374,12 +351,13 @@ function initialisationOfVariables() {
     indicator_text_count = 1;
     volt_needle_rotate_tp=ammeter_needle_rotate_tp=volt_needle_rotate_bp=ammeter_needle_rotate_bp=0;
     type=0;
-    selectedMaterial=0;
+    selected_material=0;
     power_on_flag = toggle_flag = false; /** Initialize toggle and power on flag */    
     tp_count=bp_count=0;
     emissivity_blackbody=1;
     resultant_temp=0;
-    seconds=minute=hour=seconds_refer=0;
+	timer_interval=0.05; /** Interval of the timer and clock to be execute */
+	time_array=[-1]
     initial_temp1=initial_temp2=27;
     createCircle("tp_down_hit",468,194); /** Circle created for TP down hit */
     createCircle("tp_up_hit",500,194); /** Circle created for TP up hit */
@@ -393,15 +371,8 @@ function initialisationOfImages() {
     radiation_stage.getChildByName("indicatorTimer").visible = false;
     radiation_stage.getChildByName("mlightOn").visible = false;
     radiation_stage.getChildByName("motorOn").visible = false;
-    radiation_stage.getChildByName("voltmeterReading").visible = false;
-    radiation_stage.getChildByName("ammeterReading").visible = false;
     radiation_stage.getChildByName("indicatorReading").visible = false;
     radiation_stage.getChildByName("switchOn").visible = false;
-    /** Alpha 1 of green means stop watch is running.Initial opacity as 0.5, 
-    Alpha 1 of red means stopwatch not started .Initial opacity of red button set as 1*/
-    radiation_stage.getChildByName("greenButton").alpha = 0.5;
-    radiation_stage.getChildByName("redButton").alpha = 1;
-    radiation_stage.getChildByName("watchStartStop").text =_("START");
 }
 
 /** Function for creating circles for easy click of TP BP up and down arrows */
@@ -416,16 +387,16 @@ function createCircle(name,x_val,y_val) {
 
 /** Change the disc depends on the selection from the dropdown box */
 function changeOption(scope) {
-    selectedMaterial = scope.Material;
+    selected_material = scope.Material;
     for ( var i=0; i<5; i++ ) {
         /** Check each disc whether it match with the dropdown selection */
         if ( scope.Material == i ) {
-            radiation_stage.getChildByName(materialItemArray[i]).visible=true;
-            radiation_stage.getChildByName(materialItemArray[i+5]).visible=true;
+            radiation_stage.getChildByName(material_item_array[i]).visible=true;
+            radiation_stage.getChildByName(material_item_array[i+5]).visible=true;
         } else {
             /** Visible set as false rest of the disc and its inner disc */
-            radiation_stage.getChildByName(materialItemArray[i]).visible=false;
-            radiation_stage.getChildByName(materialItemArray[i+5]).visible=false;
+            radiation_stage.getChildByName(material_item_array[i]).visible=false;
+            radiation_stage.getChildByName(material_item_array[i+5]).visible=false;
         }
     }
 }
@@ -473,13 +444,16 @@ function powerOn(scope,dialogs) {
 }
 
 /** Power on function, starting the experiment */
-function startExperiment(scope,dialogs) {    
+function startExperiment(scope,dialogs) {  
     scope.control_disable=true;
     power_on_flag = true;    
     /** Check the BP and TP voltage, show warning if their value not equal */
     if (bp_voltage_int != tp_voltage_int) { 
         dialogs.error();
     } else { /** If BP and TP voltage are same */
+        resetWatch();
+        rotateNeedlesTP(volt_needle_rotate_tp,ammeter_needle_rotate_tp);
+        rotateNeedlesBP(volt_needle_rotate_bp,ammeter_needle_rotate_bp);
         scope.power_on = power_off_btn_var;
         /** Visible the images for starting the experiment */
         radiation_stage.getChildByName("indicatorTimer").visible = true;
@@ -494,27 +468,37 @@ function startExperiment(scope,dialogs) {
         radiation_stage.getChildByName("tp_down_hit").mouseEnabled = false;
         radiation_stage.getChildByName("bp_up_hit").mouseEnabled = false;
         radiation_stage.getChildByName("bp_down_hit").mouseEnabled = false;
-        radiation_stage.getChildByName("watchStartStop").text = _("STOP");
-        radiation_stage.getChildByName("greenButton").alpha = 1;
-        radiation_stage.getChildByName("redButton").alpha = 0.5;
         radiation_stage.getChildByName("indicatorFwdArrow").mouseEnabled = false;
         radiation_stage.getChildByName("indicatorBkdArrow").mouseEnabled = false;
         indicatorReadingFn(); /** The reading value display function */
-        stopWatchValHr = radiation_stage.getChildByName("stopWatchValHr"); /** Initializing the text box */
-        stopWatchValMin = radiation_stage.getChildByName("stopWatchValMin");
-        stopWatchValSec = radiation_stage.getChildByName("stopWatchValSec");
-        timer_check = setInterval(checkTime, 10); /** Check time equal to 20 minutes */  
-        scope.emissivity_value=emissivity[selectedMaterial];              
+        pause_flag = false;
+		timer_check = setInterval(expWatch,timer_interval); /** Check time equal to 20 minutes */  
+        scope.emissivity_value=emissivity[selected_material];              
     }
 }
 
+/** Start stopwatch and related calculations */
+function expWatch() {
+    if ( !pause_flag ) {
+        showWatch(radiation_stage);
+    }
+    checkTime();
+}
+		
 /** Function for just pause the experiment */
 function powerOff(scope) {
     clearInterval(timer_check);
     radiation_stage.getChildByName("motorOff").visible = true;
+    radiation_stage.getChildByName("mlightOn").visible = false;
     scope.hide_show_result=false; /** Result text visibility changed */
     scope.power_on = power_btn_var; /** Power on label changed to initial */
-    scope.control_disable=false;
+    radiation_stage.getChildByName("indicatorReading").visible = false;
+    radiation_stage.getChildByName("indicatorTimer").visible = false;
+    getRotation("vNeedle",0);
+    getRotation("aNeedle",0);
+    radiation_stage.getChildByName("voltmeterReading").text = 0;
+    radiation_stage.getChildByName("ammeterReading").text = 0;
+    pauseWatch();
 }
 
 /** Reset function */
@@ -522,42 +506,18 @@ function resetExperiment() {
     window.location.reload();
 }
 
-/** Function to calculate and display seconds in the timer */
-function setSecond() {     
-    seconds_refer++;
-    if (seconds < 59) {
-        seconds++;
-    } else {
-        seconds = 0;
-        setMinute(); /** Find minutes */
-    }
-    radiation_stage.getChildByName("stopWatchValSec").text = seconds < 10 ? '0' + seconds : seconds;
-}
-
-/** Function to calculate and display minutes in the timer */
-function setMinute() { 
-    if (minute < 59) {
-        minute++;
-    } else {
-        minute = 0;
-        setHour(); /** Find hour */
-    }
-    radiation_stage.getChildByName("stopWatchValMin").text = minute < 10 ? '0' + minute : minute;
-}
-
-/** Function to calculate and display hours in the timer */
-function setHour() { 
-    hour++;
-    radiation_stage.getChildByName("stopWatchValHr").text = minute < 10 ? '0' + hour : hour;
-}
-
 /** This function execute during the stop watch runs */
-function checkTime() {   
-    if ( minute < 20 ) {
-        setSecond(); /** Timer interval */
-        totalEmissivityCalculation(); 
-        displayIndicatorTimer();     
-    } else {
+function checkTime() { 
+	/** 1200 is seconds, i.e, 20 minutes */
+    if ( (total_time <= 1200) & (radiation_stage.getChildByName("indicatorTimer").text <= resultant_temp) ) {    
+		if(total_time >= 1190){//enable the indicator rotation just before 20 minutes
+			radiation_stage.getChildByName("indicatorFwdArrow").mouseEnabled = true;
+			radiation_stage.getChildByName("indicatorBkdArrow").mouseEnabled = true;
+		}
+		totalEmissivityCalculation(); 
+        displayIndicatorTimer();   
+	} else {	  
+        pauseWatch();
         clearInterval(timer_check);
     }
 }
@@ -685,8 +645,6 @@ function distanceIntervalCalcTP() {
     volt_needle_rotate_tp=3.5*vneedle_distance_interval_tp;     
     aneedle_distance_interval_tp=(tp_current_int.toFixed(2)*100)-10;
     ammeter_needle_rotate_tp=aneedle_distance_interval_tp;
-    radiation_stage.getChildByName("voltmeterReading").text = tp_voltage_int;
-    radiation_stage.getChildByName("ammeterReading").text = tp_current_int.toFixed(1);
 }
 
 /** Finding the BP interval value of the ammeter and voltmeter needle rotation */ 
@@ -702,6 +660,8 @@ function rotateNeedlesTP(val1,val2) {
     if ( toggle_flag ) {
         getRotation("vNeedle",val1);
         getRotation("aNeedle",val2);
+        radiation_stage.getChildByName("voltmeterReading").text = tp_voltage_int;
+        radiation_stage.getChildByName("ammeterReading").text = tp_current_int.toFixed(1);
     }    
 }
 
@@ -710,6 +670,8 @@ function rotateNeedlesBP(val1,val2) {
     if ( !toggle_flag ) {
         getRotation("vNeedle",val1);
 		getRotation("aNeedle",val2);
+        radiation_stage.getChildByName("voltmeterReading").text = bp_voltage_int;
+        radiation_stage.getChildByName("ammeterReading").text = bp_current_int.toFixed(1);
     }    
 }
 
@@ -733,7 +695,7 @@ function indicatorReadingFn() {
 
 /** Calculation of emissivity */
 function totalEmissivityCalculation() {
-    emissivity_float=emissivity[selectedMaterial]; /** Select the emisitivity from the array given */  
+    emissivity_float=emissivity[selected_material]; /** Select the emisitivity from the array given */  
     radius_float = diameter_val_float / 2; /** Finding the radius from diameter */
     thickness_float = thickness_val_float;
     /** area = 2*3.14*rx+3.14r2 */
@@ -751,7 +713,7 @@ function totalEmissivityCalculation() {
 
     /** Indicator timer with respect to the indicator rotation count, Same indicator temperature for T1,T2,T3. 
     And same for T5,T6,T7. Different temperature for T4 */ 
-    if (indicator_text_count == 1 || indicator_text_count == 2 || indicator_text_count == 3) { /** The resultant value if indicator_text_count is in between 1 and 3 */
+    if ( indicator_text_count == 1 || indicator_text_count == 2 || indicator_text_count == 3 ) { /** The resultant value if indicator_text_count is in between 1 and 3 */
         resultant_temp=t1_to_t3_blackbody_temp;
     } else if ( indicator_text_count == 5 || indicator_text_count == 6 || indicator_text_count == 7 ) { /** The resultant value if indicator_text_count is in between 5 and 7 */
         resultant_temp=t5_to_t7_testplate_temp
@@ -761,23 +723,29 @@ function totalEmissivityCalculation() {
 }
 
 /** Indicator timer function */
-function displayIndicatorTimer() { 
+function displayIndicatorTimer() {
     if ( power_on_flag ) {
         if ( tp_count == 0 ) {
             radiation_stage.getChildByName("indicatorTimer").text = initial_temp1.toFixed(2); /** Set initial temperature as 27 degree */
             radiation_stage.getChildByName("ammeterReading").text=0; /** Set the ammeter and voltmeter rotation as 0 */
             radiation_stage.getChildByName("voltmeterReading").text=0;
         } else {
-            var temp_differnce=resultant_temp-initial_temp1;
-            var incr_factor=temp_differnce/1200; /** Find the indicator timer increment factor with respect to the seconds */
-            initial_temp2=initial_temp2+incr_factor;
+            var _temp_differnce=resultant_temp-initial_temp1;
+            var _incr_factor=_temp_differnce/1200; 
+			/** Find the indicator timer increment factor with respect to the seconds */
+	        if ( total_time != time_array[time_array.length-1] ) {
+	            /** Check the timer interval render more than once */
+                initial_temp2=parseFloat(initial_temp2+_incr_factor);  
+			}
             radiation_stage.getChildByName("indicatorTimer").text=initial_temp2.toFixed(2);
         }
     }
-    if ( minute >= 20 ) {
+	/** Total_time is calculated in seconds and taken from the stopwatch function,
+	1200 is 20 minutes in terms of seconds */
+    if ( total_time >= 1200 ) {
+		radiation_stage.getChildByName("indicatorTimer").text=resultant_temp.toFixed(2);
         radiation_stage.getChildByName("indicatorFwdArrow").mouseEnabled = true;
         radiation_stage.getChildByName("indicatorBkdArrow").mouseEnabled = true;
     }
 }
-
 /** Calculation ends */

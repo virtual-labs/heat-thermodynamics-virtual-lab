@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel='stylesheet' href='../template/assets/css/fonts.googleapis.css'>
+    <link rel="stylesheet" href="../template/bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="../template/assets/css/app.css" />
+    <link rel="stylesheet" href="css/experiment.css" />
+    <script src="../template/js/createjs-2013.12.12.min.js"></script>
+    <script src="../template/js/easeljs-0.7.0.min.js"></script>
+    <script src="../template/bower_components/angular/angular.min.js"></script>
+    <script src="../template/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../template/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../template/bower_components/angular-fullscreen/angular-fullscreen.js"></script>
+    <script src="../template/js/Gettext.js"></script>
+    <script type="text/javascript" src="../template/bower_components/angular-material/angular-material.js"></script>
+    <script src="../template/js/getlanguage.js"></script>
+    <script src="./src/user_controller.js"></script>
+    <script src="./src/experiment.js"></script>
+     <script src="../template/js/stopwatch.js"></script>
+    <script type="text/javascript">
+        angular
+            .module('starterApp', ['ngMaterial', 'users'])
+            .config(function($mdThemingProvider, $mdIconProvider) {
+                $mdIconProvider
+                    .icon("menu", "../template/assets/svg/menu.svg", 24)
+                    .icon("fullscreen", "../template/assets/icons/Icon3.svg", 24)
+                    .icon("help", "../template/assets/icons/Icon2.svg", 24);
+                $mdThemingProvider.theme('default')
+                    .primaryPalette('blue')
+                    .accentPalette('red');
+            });
+    </script>
+
+    
+</head>
+
+<body style="background-color: #f2f2f2;" ng-app="starterApp" ng-controller="UserController as ul">
+    <md-toolbar class="md-toolbar-tools" id="main">
+        <md-button class="md-icon-button" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+            <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <!-- //Experiment title gives here//   -->
+        <h1 flex="" layout="row" class="expTitle" id="expTitle">{{heading}}</h1>
+        <md-button class="md-icon-button" aria-label="help" ng-click="showActionToast()">
+            <md-icon md-svg-icon="help"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="fullscreen" ng-click="goFullscreen()">
+            <md-icon md-svg-icon="fullscreen"></md-icon>
+        </md-button>
+    </md-toolbar>
+
+    <md-content flex layout="row" style="background-color: #f2f2f2;">
+        <md-content  id="content" layout="column"  style="background-color: #f2f2f2;" md-swipe-right="toggleSidenav()">
+            <canvas id="demoCanvas" width="700" height="700" align="center" layout-fill experiment></canvas>
+            <div id="Copyright">{{copyright}}</div>    
+        </md-content>
+
+        <md-sidenav class="site-sidenav md-sidenav-left" md-component-id="right" md-is-locked-open="$mdMedia('gt-sm')" md-swipe-left="toggleSidenav()">
+            <div>  
+                <md-button id="variables" class="md-raised md-primary toolbarbutton subTitle" ng-click="toggle1()">{{variables}} 
+                    <span aria-hidden="true">
+                        <md-icon md-svg-src="md-toggle-arrow"  aria-hidden="true" ng-animate="{enter: 'rotate', leave: 'rotateCounterwise'}" ng-class="{true: 'rotate', false: 'rotateCounterwise'}[isActive1]" ></md-icon>
+                    </span> 
+                </md-button>
+                <!-- ////////////   -->
+                <div ng-hide="showVariables" class="div">
+                          
+                    <!-- Insert slider1 label -->
+                    <md-content class="md-title selectable" ng-model="waterTemp" layout-padding id="waterTemp">{{water_temperature}} {{water_temp}} </md-content>
+                    <!-- Insert slider1 -->
+                    <div layout>      
+                        <md-slider flex md-discrete ng-disabled="slider_disable"  ng-model="waterTemp" step="1" min={{water_temperature_min}} max={{water_temperature_max}} aria-label="rating" ng-change="waterTempSlider();">
+                        </md-slider>        
+                    </div>
+                    <!-- Insert slider2 label -->
+                    <md-content class="md-title selectable"  ng-model="surrTemp" layout-padding id="surrTemp">{{surr_temperature}} {{surr_temp}}</md-content>
+                    <!-- Insert slider2 -->
+                    <div layout>      
+                        <md-slider flex md-discrete ng-disabled="slider_disable" ng-model="surrTemp"  step="1" min={{surr_temperature_min}} max={{surr_temperature_max}} aria-label="rating"  ng-change="surroundTempSlider();"></md-slider>        
+                    </div>
+                    
+                    <!-- Insert slider3 label -->
+                    <md-content class="md-title selectable" ng-model="discMass" layout-padding id="discMass">{{disc_mass}}{{mass}}</md-content>
+                    <!-- Insert slider3 -->
+                    <div layout>      
+                        <md-slider flex md-discrete ng-disabled="slider_disable" ng-model="discMass" step="0.1" min="5" max="10" aria-label="rating" ng-change="massDiscSlider();"></md-slider>        
+                    </div>
+                    
+                    <!-- Insert slider4 label -->
+                    <md-content class="md-title selectable" ng-model="discRadius" layout-padding id="discRad">{{disc_radius}}{{radius}}</md-content>
+                    <!-- Insert slider4 -->
+                    <div layout>      
+                        <md-slider flex md-discrete ng-disabled="slider_disable" ng-model="discRadius" step="0.1" min="1" max="5" aria-label="rating" ng-change="radiusDiscSlider();"></md-slider>        
+                    </div>
+                    
+                    <!-- // Inset button1 //   -->
+                    <section layout="row" layout-align="center center">
+                      <md-button class="md-raised" id="powerOn" ng-click="powerOnBtn();" >{{power_on}}</md-button>
+                    </section>
+                    
+                    <!-- // Inset button2 //   -->
+                    <section layout="row" layout-align="center center">
+                      <md-button ng-disabled="fit_disc_disable" class="md-raised" id="fitDisc" ng-click="fitDiscBtn();" >{{fit_disc}}</md-button>
+                    </section>
+                        
+                    <!-- Insert checkbox -->
+                    <md-checkbox ng-disabled=""  class="md-title selectable" ng-model="crossView" aria-label="Checkbox1" id="crossView" ng-change="system_crossView()">{{cross_view}}</md-checkbox>
+                </div>      
+                <!-- ////////////   -->
+              
+                <md-button id="measurement" class="md-raised md-primary toolbarbutton subTitle" ng-click="toggle()">{{measurement}} 
+                    <span aria-hidden="true">
+                    <md-icon md-svg-src="md-toggle-arrow"   aria-hidden="true" ng-animate="{enter: 'rotate', leave: 'rotateCounterwise'}" ng-class="{true: 'rotate', false: 'rotateCounterwise'}[isActive]" ></md-icon>
+                    </span>
+                </md-button>
+            
+                <!-- // Inset result label //   -->       
+                <div ng-hide="showValue" class="div"> 
+                    <div id="temperatureDiv"> 
+                    <md-radio-group ng-model="temp.data" ng-click="result_Check()">
+                        <md-radio-button id="radio_btn_1" class="md-title selectable" value="T1" >T1</md-radio-button>
+                        <md-radio-button id="radio_btn_2" class="md-title selectable" value="T2">T2</md-radio-button>        
+                        <md-radio-button id="radio_btn_3" class="md-title selectable" value="T3">T3</md-radio-button>
+                        <md-radio-button id="radio_btn_4" class="md-title selectable" value="T4">T4</md-radio-button>
+                    </md-radio-group> 
+                    </div>
+                    <md-content class="md-title selectable" ng-model="temperatureLabe2" layout-padding id="temperatureLabel2">{{result_text}}</md-content>
+                    <md-content class="md-title selectable" ng-model="temperatureLabel" layout-padding id="temperatureLabel">{{temperature}}</md-content>
+                    <md-content class="md-title selectable" ng-model="temperatureValue" layout-padding id="temperatureValue">{{temperature_value}}</md-content>            
+                </div>
+            </div>
+        </md-sidenav>
+    </md-content>
+</body>
+</html>

@@ -1,0 +1,32 @@
+#temperatureDiv {
+    margin-left: 36%;
+}
+#temperatureLabel {
+	margin-left: 29%;
+    display: inline;
+}
+#temperatureValue {
+    display:inline;
+}
+/* Fix for Bootstrap 3 with Angular UI Bootstrap */
+#radio_btn_1{
+	margin-left: -29%;
+    margin-top: 10%;
+}
+#radio_btn_2{
+    margin-left: 30%;
+    margin-top: -20%;
+}
+#radio_btn_3{
+    margin-left: -29%;
+    margin-top: 15%;
+}
+#radio_btn_4{
+    margin-left: 30%;
+    margin-top: -20%;
+    margin-bottom: 17%;
+}
+#temperatureLabel2{
+	    margin-bottom: -10%;
+    margin-left: -1%;
+}
