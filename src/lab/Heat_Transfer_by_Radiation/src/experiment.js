@@ -32,6 +32,8 @@ var voltage_array=[100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,2
 
 var current_array=[0.2,0.309091,0.4,0.476923,0.542857,0.6,0.65,0.694118,0.73333,0.768421,0.8,0.828571,0.854545,0.878261,0.9,0.92,0.938462,0.955556,0.971429,0.986207,1];
 
+var help_array = [];
+
 /** Emissivity of each material is taken */
 var emissivity = {
     0: 0.77,
@@ -444,14 +446,15 @@ function powerOn(scope,dialogs) {
 }
 
 /** Power on function, starting the experiment */
-function startExperiment(scope,dialogs) {  
-    scope.control_disable=true;
-    power_on_flag = true;    
+function startExperiment(scope,dialogs) {        
     /** Check the BP and TP voltage, show warning if their value not equal */
     if (bp_voltage_int != tp_voltage_int) { 
         dialogs.error();
     } else { /** If BP and TP voltage are same */
         resetWatch();
+        scope.result_disable=false;
+        scope.control_disable=true;
+        power_on_flag = true;
         rotateNeedlesTP(volt_needle_rotate_tp,ammeter_needle_rotate_tp);
         rotateNeedlesBP(volt_needle_rotate_bp,ammeter_needle_rotate_bp);
         scope.power_on = power_off_btn_var;
@@ -498,6 +501,8 @@ function powerOff(scope) {
     getRotation("aNeedle",0);
     radiation_stage.getChildByName("voltmeterReading").text = 0;
     radiation_stage.getChildByName("ammeterReading").text = 0;
+    scope.result_disable=true;
+    scope.resultValue=[];
     pauseWatch();
 }
 

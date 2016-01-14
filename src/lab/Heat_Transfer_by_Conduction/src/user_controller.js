@@ -27,6 +27,7 @@
             left: true,
             right: false
         };
+           
         $scope.toggleSidenav = function(ev) {
             $mdSidenav('right').toggle();
         };
@@ -38,43 +39,42 @@
         $scope.showActionToast = function() {        
             var toast = $mdToast.simple()
             .content(help_array[0])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
             .position($scope.getToastPosition());
         
             var toast1 = $mdToast.simple()
             .content(help_array[1])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
             .position($scope.getToastPosition());
 		  
             var toast2 = $mdToast.simple()
             .content(help_array[2])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
             .position($scope.getToastPosition());
             
             var toast3 = $mdToast.simple()
             .content(help_array[3])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
             .position($scope.getToastPosition());
             
             var toast4 = $mdToast.simple()
             .content(help_array[4])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
-            .position($scope.getToastPosition());
-            
+            .position($scope.getToastPosition());            
 
             var toast5 = $mdToast.simple()
             .content(help_array[5])
-            .action(help_array[7])
+            .action(help_array[8])
             .hideDelay(15000)
             .highlightAction(false)
             .position($scope.getToastPosition());
@@ -86,6 +86,13 @@
             .highlightAction(false)
             .position($scope.getToastPosition());
 
+            var toast7 = $mdToast.simple()
+            .content(help_array[7])
+            .action(help_array[9])
+            .hideDelay(15000)
+            .highlightAction(false)
+            .position($scope.getToastPosition());
+
             $mdToast.show(toast).then(function() {
                 $mdToast.show(toast1).then(function() {
                     $mdToast.show(toast2).then(function() {
@@ -93,6 +100,8 @@
                             $mdToast.show(toast4).then(function() {
                                 $mdToast.show(toast5).then(function() {
                                     $mdToast.show(toast6).then(function() {
+                                        $mdToast.show(toast7).then(function() {
+                                        });
                                     });
                                 });
 			 				});
@@ -113,12 +122,12 @@
         $scope.isActive1 = true;
         
         $scope.control_disable=false; /** It disables the controls drop down box, reverse current, radius of coil, adjust rheostat, check box, reset */        
-        $scope.result_disable=true; /** Show result checkbox disabled */
-        $scope.hide_show_result=false; /** It hides the show result check box */        
-        $scope.diameter=5; /** Initial diameter slider value */
-        $scope.thickness=1; /** Initial compass box position slider value */
-        $scope.temperature=-20; /** Initial magnetic field result value */
-        $scope.emissivity_value=0;
+        $scope.hide_show_result=false; /** It hides the show result check box */   
+        $scope.show_result_disable=true; /** It disables the show result check box */   
+        $scope.diameter=10; /** Initial diameter slider value */
+        $scope.thickness=0.5; /** Initial compass box position slider value */
+        $scope.temperature=0; /** Initial magnetic field result value */
+        $scope.conductivity_value=0;
 		
         $scope.goFullscreen = function () {
             /** Full screen */
@@ -157,6 +166,10 @@
         $scope.temperatureSlider = function() {
             temperatureSliderFN($scope); /** Function defined in experiment.js file */
         }
+        /** Change event function of the check box Show cross section */
+        $scope.showCrossSection = function() {
+            showCrossSectionFN($scope);
+        }
         /** Change event function of the check box Show result */
         $scope.showResult = function() {
             showResultFN($scope); /** Function defined in experiment.js file */
@@ -169,6 +182,7 @@
         $scope.resetBtn = function() {
             resetExperiment(); /** Function defined in experiment.js file */
         }
+    
         /**
         * First hide the bottom sheet IF visible, then
         * hide or Show the 'left' sideNav area
