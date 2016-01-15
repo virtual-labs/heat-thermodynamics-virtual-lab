@@ -7,17 +7,17 @@ var phase_change_stage, exp_canvas, poweron_flag, maskRectangle;
 
 var temperature_float, timer, material, tick;/** Tick timer for stage updation */
 
-var specific_heat_capacity, density, latent_heat, melting_point, mass_testtube, specific_heat_glass;
+var specific_heat_capacity, density, latent_heat, melting_point;
 
-var heat_transfer_coeff_glass, thermal_conduct_glas, thickness_tube, substance_mass, surround_temp;
+var thermal_conduct_glas, thickness_tube, substance_mass, surround_temp;
 
-var substanceArray = dataplotArray = helpArray = [];
+var substance_array = dataplot_array = help_array = [];
 
-var time_sec, sec_in_min, soln_alpha, one_sec_min, wax_alpha, seconds, minute, hour, ice_alpha;
+var time_sec, sec_in_min, soln_alpha, one_sec_min, wax_alpha, ice_alpha;
 
-var  subst_height, area, k_const, max_temp, trans_temp, transition_time;
+var subst_height, area, k_const, max_temp, trans_temp, transition_time, timer_interval;
 
-var sec_for_graph,steadytime,min_for_graph, trans_time_sec, transition_delay;
+var sec_for_graph,steady_time,min_for_graph, trans_time_sec, transition_delay;
 
 /** Specific maximum and minimum values of slider temperature of each substance */
 var temp_slider_min = {
@@ -50,7 +50,7 @@ function directiveFunction() {
 				element[0].offsetWidth = element[0].offsetWidth;
 				element[0].offsetHeight = element[0].offsetWidth;
 			}
-			/**preloading the images in a queue*/
+			/** Preloading the images in a queue */
 			queue = new createjs.LoadQueue(true);
 			queue.installPlugin(createjs.Sound);
 			queue.on("complete", handleComplete, this);
@@ -75,14 +75,6 @@ function directiveFunction() {
 				src: "././images/stand.svg",
 				type: createjs.LoadQueue.IMAGE
 			}, {
-				id: "greenbutton",
-				src: "././images/greenbutton.svg",
-				type: createjs.LoadQueue.IMAGE
-			}, {
-				id: "redbutton",
-				src: "././images/redbutton.svg",
-				type: createjs.LoadQueue.IMAGE
-			}, {
 				id: "wax",
 				src: "././images/waxsolution.svg",
 				type: createjs.LoadQueue.IMAGE
@@ -91,7 +83,7 @@ function directiveFunction() {
 				src: "././images/icecubes.svg",
 				type: createjs.LoadQueue.IMAGE
 			}]);
-			/**stage initialization*/
+			/** Stage initialization */
 			phase_change_stage = new createjs.Stage("demoCanvas");
 			phase_change_stage.enableDOMEvents(true);
 			phase_change_stage.enableMouseOver();
@@ -99,42 +91,37 @@ function directiveFunction() {
 			
 			function handleComplete() {
 				maskRectangle = new createjs.Shape();
-				/**loading all images in the queue to the satage*/
+				/** Loading all images in the queue to the satage */
 				loadImages(queue.getResult("background"), "background", -10, -5, "", 0);
 				loadImages(queue.getResult("other_objects"), "other_objects", 150, 20, "", 0);
 				loadImages(queue.getResult("solution"), "solution", 200, 155, "", 0);
 				loadImages(queue.getResult("wax"), "wax", 205, 163, "", 0);
 				loadImages(queue.getResult("ice"), "ice", 205, 168, "", 0);
 				loadImages(queue.getResult("solution_line"), "solution_line", 205, 360, "", 0);
-				loadImages(queue.getResult("stand"), "stand", 36, 34, "", 0);
-				loadImages(queue.getResult("greenbutton"), "greenbutton", 644, 553, "", 0);
-				loadImages(queue.getResult("redbutton"), "redbutton", 625, 553, "", 0);				
+				loadImages(queue.getResult("stand"), "stand", 36, 34, "", 0);			
 				
-				/** Add rect for masking the images*/
+				/** Add rect for masking the images */
 				maskRectangle.name = "mask_rectangle";
 				maskRectangle.graphics.beginFill("red").drawRect(195, 362, 60, 200);
 				maskRectangle.alpha = 0;				
 				/** Text box loading */
-				setText("stopWatchValHr", 542, 535, "00", "black", 1.3);
-				setText("stopWatchValMin", 583, 535, "00", "black", 1.3);
-				setText("stopWatchValSec", 623, 535, "00", "black", 1.3);
-				setText("watchStartStop", 555, 566, "", "black", 1);
-				setText("thermomterTxt", 371, 450, "218.0℃", "black", 1.3);
+				setText("thermomterTxt", 371, 450, "218.0℃", "black", 1.3);				  
 				initialisationOfVariables(); /** Initializing the variables */
+				createStopwatch (phase_change_stage, 440,438,timer_interval); 
 				initialisationOfImages(); /** Function call for images used in the apparatus visibility */
 				translationLabels(); /** Translation of strings using gettext */
 				makeGraph(); /** Graph plotting function */
 			}
 			/** Add all the strings used for the language translation here. '_' is the short cut for calling the gettext function defined in the gettext-definition.js */
-			function translationLabels() {/**labels used in the experiment initialize here*/
+			function translationLabels() { /** Labels used in the experiment initialize here */
 				/** This help array shows the hints for this experiment */
-				helpArray = [_("help1"), _("help2"), _("help3"), _("help4"), _("help5"), _("Next"), _("Close")];
+				help_array = [_("help1"), _("help2"), _("help3"), _("help4"), _("help5"), _("Next"), _("Close")];
 				scope.heading = _("phase change");
 				scope.variables = _("Variables");
 				scope.select_substance = _("Select substance");
-				scope.mass_label = _("Mass of Substance");
+				scope.mass_label = _("Mass of Substance:");
 				scope.mass_unit = _("g");
-				scope.temp_label = _("Surrounding Temperature");
+				scope.temp_label = _("Surrounding Temperature:");
 				scope.start_exp = _("Start Experiment");
 				scope.show_result = _("Show Result");
 				scope.transition_time = _("Transition time");
@@ -144,7 +131,7 @@ function directiveFunction() {
 				scope.naphthalene = _("Naphthalene");
 				scope.melting_pt = _("Melting Point");
 				/** The substance array contains the materials which is used for the experiment */
-				scope.substanceArray = [{
+				scope.substance_array = [{
 					substance: _('Naphthalene'),
 					type: 'naphthalene'
 				}, {
@@ -186,8 +173,8 @@ function loadImages(image, name, xPos, yPos, cursor, rot) {
 	bitmap.alpha = 1;
 	bitmap.rotation = rot;
 	bitmap.cursor = cursor;
-	if (name == "solution" || name == "wax" || name == "ice") {
-		/**mask the solution image inside the testtube*/
+	if ( name == "solution" || name == "wax" || name == "ice" ) {
+		/** Mask the solution image inside the testtube */
 		bitmap.mask = maskRectangle;
 		phase_change_stage.addChild(maskRectangle);
 	}
@@ -196,14 +183,11 @@ function loadImages(image, name, xPos, yPos, cursor, rot) {
 
 /** All variables initialising in this function */
 function initialisationOfVariables() {
-	/**default value is set as initial, initial material is considered ad Naphthalene*/
+	/** Default value is set as initial, initial material is considered ad Naphthalene */
 	specific_heat_capacity = 1.72;
 	density = 1140;
 	latent_heat = 151;
 	melting_point = 80.26;
-	mass_testtube = 0.0228137;
-	specific_heat_glass = 670;
-	heat_transfer_coeff_glass = 45;
 	thermal_conduct_glas = 0.045;
 	thickness_tube = 0.001;
 	substance_mass = 10;
@@ -215,10 +199,8 @@ function initialisationOfVariables() {
 	ice_alpha = 0;
  	one_sec_min = 0.016667;
  	wax_alpha = 0;
- 	seconds = 0;
-	minute = 0;
- 	hour = 0;
 	subst_height = 0;
+	timer_interval=0.8; /** Interval of the timer and clock to be execute */
 	area = 0;
  	k_const = 0;
  	max_temp = 218;
@@ -227,7 +209,7 @@ function initialisationOfVariables() {
  	trans_time_sec = 6.57874224;
  	transition_delay = 0;
  	sec_for_graph = 0;
- 	steadytime = 0;
+ 	steady_time = 0;
  	min_for_graph = 0;
 	poweron_flag = false;
 	material = "naphthalene";
@@ -237,22 +219,20 @@ function initialisationOfVariables() {
 function initialisationOfImages() {
 	phase_change_stage.getChildByName("wax").alpha = 0;
 	phase_change_stage.getChildByName("ice").alpha = 0;
-	phase_change_stage.getChildByName("solution").alpha = 0.1;/**initial solution*/
-	phase_change_stage.getChildByName("watchStartStop").text = _("START");
-	phase_change_stage.getChildByName("greenbutton").alpha = 0.5;
+	phase_change_stage.getChildByName("solution").alpha = 0.1; /** Initial solution */
 }
 
 /** mass slider function */
 function massSliderFN(scope) {
 	substance_mass = scope.Mass;
-	/** Adjusting the y value of masking rectangle and the solution top line for making a feel of increase in solution in the test tube*/
+	/** Adjusting the y value of masking rectangle and the solution top line for making a feel of increase in solution in the test tube */
 	var _rect_y_move = 10 - (substance_mass * 2); 
 	var _sol_line_y_move = 370 - (substance_mass * 2); 
 	maskRectangle.y = _rect_y_move;
 	phase_change_stage.getChildByName("solution_line").y = _sol_line_y_move;
 }
 
-/** Select the surrounding temperature*/
+/** Select the surrounding temperature */
 function temperatureSliderFN(scope) {
 	surround_temp = temperature_float;
 	scope.temperature = temperature_float + "℃";
@@ -260,28 +240,32 @@ function temperatureSliderFN(scope) {
 
 /** Click event of power on button, experiment starts here */
 function startExperiment(scope) {
-	if (!poweron_flag) {
-		/**disable rest of the controls used in the experiment*/
+	if ( !poweron_flag ) {
+		/** Disable rest of the controls used in the experiment */
 		scope.start_exp = _("Reset");
 		scope.result_disable = false;
 		poweron_flag = true;
 		scope.controls_disable = true; 
-		phase_change_stage.getChildByName("greenbutton").alpha = 1;
-		phase_change_stage.getChildByName("redbutton").alpha = 0.5;
-		phase_change_stage.getChildByName("watchStartStop").text = _("STOP");
-		/**the reaction will starts in the timer*/
+		pause_flag = false;		
 		timer = setInterval(function() {
-			startReaction(scope);
-		}, 200);		
-	} else {
-		/**reset the experiment*/
-		window.location.reload();
+			expWatch(scope);
+		}, 1);	/** The reaction will starts in the timer */	
+	} else {		
+		window.location.reload(); /** Reset the experiment */
 	}
 }
 
-/** check box function for show or hide the result */
+/** Start stopwatch and related calculations */
+function expWatch(scope) {
+    if ( !pause_flag ) {
+        showWatch(phase_change_stage);
+    }
+   	startReaction(scope);
+}
+
+/** Check box function for show or hide the result */
 function showresultFN(scope) {
-	if (scope.resultValue == true) {
+	if ( scope.resultValue == true ) {
 		scope.hide_show_result = false;
 	} else {
 		scope.hide_show_result = true;
@@ -307,25 +291,24 @@ function makeGraph() {
 			type: "line",
 			markerType: "none",
 			lineThickness: 5,
-			dataPoints: dataplotArray   /**array contains the data*/
+			dataPoints: dataplot_array   /** Array contains the data */
 		}]
 	});
-	chart.render();  /**rendering the graph*/
+	chart.render();  /** Rendering the graph */
 }
 
-/**reaction starts depend up on the selected material*/
+/** Reaction starts depend up on the selected material */
 function startReaction(scope) {
-	calculation(scope);//calculation of T(t).
-	setSecond();//timer interval
+	calculation(scope); /** calculation of T(t) */
 	switch (material) {
 		case "naphthalene":
-			soldifyNaphtalene();//if selected material is naphthalene
+			soldifyNaphtalene(); /** If selected material is naphthalene */
 			break;
 		case "ice":
-			soldifyIce();// material is ice 
+			soldifyIce(); /** Material is ice */
 			break;
 		case "wax":
-			soldifyWax();// material is wax 
+			soldifyWax(); /** Material is wax */
 			break;
 	}
 }
@@ -344,92 +327,63 @@ function soldifyWax() {
 
 /** Soldify ice when material ice is selected */
 function soldifyIce() {
-	if(trans_temp<=5){
-	ice_alpha = ice_alpha + (time_sec * 0.00003);
-	phase_change_stage.getChildByName("ice").alpha = ice_alpha;
+	if ( trans_temp <= 5 ){
+		ice_alpha = ice_alpha + (time_sec * 0.00003);
+		phase_change_stage.getChildByName("ice").alpha = ice_alpha;
 	}
 }
-/** function to calculate and display seconds in the timer*/
-function setSecond() { 
-	if (seconds < 59) {
-		seconds++;
-	} else {
-		seconds = 0;
-		setMinute();// find minutes
-	}
-	phase_change_stage.getChildByName("stopWatchValSec").text = seconds < 10 ? '0' + seconds : seconds;
-}
 
-/** function to calculate and display minutes in the timer*/
-function setMinute() { 
-	if (minute < 59) {
-		minute++;
-	} else {
-		minute = 0;
-		setHour();// find hour
-	}
-	phase_change_stage.getChildByName("stopWatchValMin").text = minute < 10 ? '0' + minute : minute;
-}
-
-/** function to calculate and display hours in the timer*/
-function setHour() { 
-	hour++;
-	phase_change_stage.getChildByName("stopWatchValHr").text = minute < 10 ? '0' + hour : hour;
-}
-
-/**calculation starts here*/
+/** Calculation starts here */
 function calculation(scope) {
-	sec_for_graph++;//seconds
-	/**1 sec= 1 *0.016667 minutes*/
+	sec_for_graph=total_time; /** Seconds */
+	/** 1 sec= 1 *0.016667 minutes */
 	min_for_graph = sec_for_graph * one_sec_min;
-	/**h=(m2/ρ-4.0885*10^-6)*2038.2165, where m2 is the substance mass, ρ - density*/
+	/** h=(m2/ρ-4.0885*10^-6)*2038.2165, where m2 is the substance mass, ρ - density */
 	subst_height = (substance_mass / density - 4.0885 * Math.pow(10, -6)) * 2038.2165;
-	/**A=9.8125*10^-4+0.0785*h, where A is the area, h is the substance height*/
+	/** A=9.8125*10^-4+0.0785*h, where A is the area, h is the substance height */
 	area = 9.8125 * Math.pow(10, -4) + 0.0785 * subst_height;
-	/**k=45*A/(15.2853+m2C2), where k is the constant, A is the area, m2 is the mass and C2 is the specific heat capacity of the material*/
+	/** k=45*A/(15.2853+m2C2), where k is the constant, A is the area, m2 is the mass and C2 is the specific heat capacity of the material */
 	k_const = 45 * area / (15.2853 + (substance_mass * substance_mass * specific_heat_capacity));	
-	/**transition time=(m2*L*∆x)/(K*A*(Ta-Th)), Where m2 - mass, L - latent heat, ∆x -Thickness of tube, K-thermal conductyvity of glass, Ta is the surrounding temperature and Th is the maximum temperature of the material*/
+	/** transition time=(m2*L*∆x)/(K*A*(Ta-Th)), Where m2 - mass, L - latent heat, ∆x -Thickness of tube, K-thermal conductyvity of glass, Ta is the surrounding temperature and Th is the maximum temperature of the material */
 	transition_time = (substance_mass * latent_heat * thickness_tube) / (thermal_conduct_glas * area * (Math.abs(surround_temp - max_temp)));
 	scope.transValue = transition_time.toFixed(4) + " min";
-	scope.meltVal = melting_point + " ℃";//result diaplay
-	/*change the transition time in terms of seconds*/
+	scope.meltVal = melting_point + " ℃"; /** Result diaplay */
+	/* Change the transition time in terms of seconds */
 	trans_time_sec = transition_time * 60
-	/**transition temperature will find for wach second, new transition temperature will find till it reaches the melting point of the material. Plot the graph using the sec and the transition temperature*/
-	if (trans_temp >= melting_point) {
-		time_sec++;
+	/** Transition temperature will find for wach second, new transition temperature will find till it reaches the melting point of the material. Plot the graph using the sec and the transition temperature */
+	if ( trans_temp >= melting_point ) {
+		time_sec=total_time;
 		sec_in_min = time_sec * one_sec_min;
 		trans_temp = surround_temp + (max_temp - surround_temp) * Math.exp(-1 * k_const * sec_in_min);
-		plotGraph(sec_in_min,trans_temp);//graph plot for first curve
+		plotGraph(sec_in_min,trans_temp); /** Graph plot for first curve */
 	} else {
-		/**when it reaches the melting point stop calculation the transition temperature and it will move steady till the transiton time*/
+		/** When it reaches the melting point stop calculation the transition temperature and it will move steady till the transiton time */
 		transition_delay++;
-		if (transition_delay <= trans_time_sec) {
-			steadytime = sec_in_min + (transition_delay / 60);
-			plotGraph(steadytime,trans_temp);	//graph plot for steady temperature		
+		if ( transition_delay <= trans_time_sec ) {
+			steady_time = sec_in_min + (transition_delay / 60);
+			plotGraph(steady_time,trans_temp); /** Graph plot for steady temperature */		
 		} else {
 			transition_delay=max_temp;
-			/**after passing the transition time again temperature will decreases and graph will plot*/
-			time_sec++;
+			/** After passing the transition time again temperature will decreases and graph will plot */
+			time_sec=total_time+trans_time_sec;
 			sec_in_min = (time_sec * one_sec_min);
 			trans_temp = surround_temp + (max_temp - surround_temp) * Math.exp(-1 * k_const * sec_in_min);
-			if(trans_temp.toFixed(1)==surround_temp.toFixed(1)){
-				/**transition time reaches the surrounding temperature*/
-				clearInterval(timer);
-				}else{
-			plotGraph(min_for_graph,trans_temp);//graph plot for second curve			
+			if ( trans_temp.toFixed(1) == surround_temp.toFixed(1) ) {				
+				clearInterval(timer); /** Transition time reaches the surrounding temperature */
+			} else {
+				plotGraph(sec_in_min,trans_temp); /** Graph plot for second curve */			
 			}
 		}
 	}
-	phase_change_stage.getChildByName("thermomterTxt").text = trans_temp.toFixed(1) + "℃";
-	
+	phase_change_stage.getChildByName("thermomterTxt").text = trans_temp.toFixed(1) + "℃";	
 }
 
-/**graph drawing*/
+/** Graph drawing */
 function plotGraph(xAxis,yAxis) {
-	dataplotArray.push({
-		x: (xAxis), //x time in minute
-		y: (yAxis) // y transition temperatue in degree
+	dataplot_array.push({
+		x: (xAxis), /** x time in minute */
+		y: (yAxis) /** y transition temperatue in degree */
 	});
-	chart.render(); //rendering the canvasjs chart
+	chart.render(); /** Rendering the canvasjs chart */
 }
-/**calculation ends here*/
+/** Calculation ends here */

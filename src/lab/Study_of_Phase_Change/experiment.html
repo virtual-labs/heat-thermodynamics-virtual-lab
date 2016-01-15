@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../template/bower_components/angular-material/angular-material.css" />
 <link rel="stylesheet" href="../template/assets/css/app.css" />
 <link rel="stylesheet" href="css/experiment.css" />
-<script src="../template/js/createjs-2013.12.12.min.js"></script>
+<script src="../template/js/createjs-2015.05.21.min.js"></script>
 <script src="../template/js/canvasjs.min.js"></script>
 <script src="../template/bower_components/angular/angular.min.js"></script>
 <script src="../template/bower_components/angular-animate/angular-animate.js"></script>
@@ -19,8 +19,9 @@
 <script src="../template/js/Gettext.js"></script>
 <script type="text/javascript" src="../template/bower_components/angular-material/angular-material.js"></script>
 <script src="../template/js/getlanguage.js"></script>
-<script src="./src/UserController.js"></script>
+<script src="./src/user_controller.js"></script>
 <script src="./src/experiment.js"></script>
+<script src="../template/js/stopwatch.js"></script>
 <script type="text/javascript">
     angular
     .module('starterApp', ['ngMaterial','users'])
@@ -72,31 +73,31 @@
         <!-- Insert dropdown box -->
         <md-content class="md-padding" >
           <md-select ng-disabled="controls_disable" aria-label="substanceLbl" placeholder="{{naphthalene}}" ng-model="Substance" ng-change="selectSubstance()">
-            <md-option ng-repeat="x in substanceArray" value="{{ x.type }}">{{ x.substance }}</md-option>
+            <md-option ng-repeat="x in substance_array" value="{{ x.type }}">{{ x.substance }}</md-option>
           </md-select>
         </md-content>
         
         <!-- Insert slider1 label -->
-        <md-content class="md-title selectable" ng-model="Mass" layout-padding id="mass">{{mass_label}} : {{mass}} {{mass_unit}}</md-content>
+        <md-content class="md-title selectable" ng-model="Mass" layout-padding id="mass">{{mass_label}} {{mass}} {{mass_unit}}</md-content>
         <!-- Insert slider1 -->
         <div layout>      
             <md-slider flex md-discrete ng-disabled="controls_disable" ng-model="Mass" step="1" min="10" max="50" aria-label="rating" ng-change="massSlider();"></md-slider>        
         </div>
         <!-- Insert slider2 label -->
-        <md-content class="md-title selectable" ng-model="Temperature" layout-padding id="tempValue">{{temp_label}} : {{temperature}}</md-content>
+        <md-content class="md-title selectable" ng-model="Temperature" layout-padding id="tempValue">{{temp_label}} {{temperature}}</md-content>
         <!-- Insert slider2 -->
         <div layout>      
-            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_one" ng-model="Temperature_one" step="1" min="0" max="100" aria-label="rating" ng-change="tempSlider();" ></md-slider>        
+            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_one" ng-model="Temperature_one" step="1" min="0" max="100" aria-label="rating" ng-change="tempSlider();"></md-slider>        
         </div>    
         <div layout>      
-            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_two" ng-model="Temperature_two" step="1" min="-10" max="90" aria-label="rating" ng-change="tempSlider();" ></md-slider>        
+            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_two" ng-model="Temperature_two" step="1" min="-10" max="90" aria-label="rating" ng-change="tempSlider();"></md-slider>        
         </div>
         <div layout>      
-            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_three" ng-model="Temperature_three" step="1" min="0" max="90" aria-label="rating" ng-change="tempSlider();" ></md-slider>        
+            <md-slider flex md-discrete ng-disabled="controls_disable" ng-show="temperature_three" ng-model="Temperature_three" step="1" min="0" max="90" aria-label="rating" ng-change="tempSlider();"></md-slider>        
         </div>
         <!-- // Insert button1 //   -->
         <section layout="row" layout-align="center center">
-          <md-button  class="md-raised" id="startExp" ng-click="startExp();" >{{start_exp}}</md-button>
+          <md-button  class="md-raised" id="startExp" ng-click="startExp();">{{start_exp}}</md-button>
         </section>
 
         <!-- Insert checkbox2 -->

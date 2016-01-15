@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d\n"
 "POT-Creation-Date: 2015-12-02 13:56+0530\n"
-"PO-Revision-Date: 2015-12-02 13:57+0530\n"
+"PO-Revision-Date: 2016-01-15 10:39+0530\n"
 "Last-Translator: \n"
 "Language-Team: d\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.11\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;gt.gettext\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -17,12 +17,11 @@ msgstr ""
 
 #: experiment.js:130
 msgid "help1"
-msgstr "Select the material from the drop down box"
+msgstr "Select the material from the drop down box."
 
 #: experiment.js:130
 msgid "help2"
-msgstr ""
-"Select the mass of the substance and surrounding temperature from the slider"
+msgstr "Select the mass of the substance and surrounding temperature from the slider."
 
 #: experiment.js:130
 msgid "help3"
@@ -58,7 +57,7 @@ msgstr "Select substance"
 
 #: experiment.js:134
 msgid "Mass of Substance"
-msgstr "Mass of Substance"
+msgstr "Mass of Substance:"
 
 #: experiment.js:135
 msgid "g"
@@ -66,7 +65,7 @@ msgstr "g"
 
 #: experiment.js:136
 msgid "Surrounding Temperature"
-msgstr "Surrounding Temperature"
+msgstr "Surrounding Temperature:"
 
 #: experiment.js:137
 msgid "Start Experiment"
@@ -125,9 +124,7 @@ msgid "temperature"
 msgstr "Temperature (in ℃)"
 
 #~ msgid "help6"
-#~ msgstr ""
-#~ "Show circuit diagram displays the circuit diagram and Show graph displays "
-#~ "the graph."
+#~ msgstr "Show circuit diagram displays the circuit diagram and Show graph displays the graph."
 
 #~ msgid "help7"
 #~ msgstr "Checkbox 'Show Result' gives the result reading."
@@ -372,31 +369,17 @@ msgstr "Temperature (in ℃)"
 #~ msgid "EXIT"
 #~ msgstr "EXIT"
 
-#~ msgid ""
-#~ "Developed by CDAC Mumbai & Amrita University <br> Under research grant "
-#~ "from department of IT"
-#~ msgstr ""
-#~ "Developed by CDAC Mumbai & Amrita University <br> Under research grant "
-#~ "from department of IT"
+#~ msgid "Developed by CDAC Mumbai & Amrita University <br> Under research grant from department of IT"
+#~ msgstr "Developed by CDAC Mumbai & Amrita University <br> Under research grant from department of IT"
 
-#~ msgid ""
-#~ "The mass of the object due to gravity that displayed in the spring balance"
-#~ msgstr ""
-#~ "The mass of the object due to gravity that displayed in the spring balance"
+#~ msgid "The mass of the object due to gravity that displayed in the spring balance"
+#~ msgstr "The mass of the object due to gravity that displayed in the spring balance"
 
-#~ msgid ""
-#~ "The actual mass of the body calculated using the equation, m = "
-#~ "gravitational mass(w) x 9.8 / g(environment)"
-#~ msgstr ""
-#~ "The actual mass of the body calculated using the equation, m = "
-#~ "gravitational mass(w) x 9.8 / g(environment)"
+#~ msgid "The actual mass of the body calculated using the equation, m = gravitational mass(w) x 9.8 / g(environment)"
+#~ msgstr "The actual mass of the body calculated using the equation, m = gravitational mass(w) x 9.8 / g(environment)"
 
-#~ msgid ""
-#~ "Final level of water (with block immersed) - Initial level of water "
-#~ "(without block immersed)"
-#~ msgstr ""
-#~ "Final level of water (with block immersed) - Initial level of water "
-#~ "(without block immersed)"
+#~ msgid "Final level of water (with block immersed) - Initial level of water (without block immersed)"
+#~ msgstr "Final level of water (with block immersed) - Initial level of water (without block immersed)"
 
 #~ msgid "Density, D(g/cc) = m/v = mass divided by volume"
 #~ msgstr "Density, D(g/cc) = m/v = mass divided by volume"
@@ -484,31 +467,17 @@ msgstr "Temperature (in ℃)"
 #~ msgstr "Number of grasshoppers : "
 
 #, fuzzy
-#~ msgid ""
-#~ "Presence of CO<sub>2</sub> in the test tube, turns the blue BTB indicator "
-#~ "to green."
-#~ msgstr ""
-#~ "Presence of CO<sub>2</sub> in the test tube, turns the blue BTB indicator "
-#~ "to green."
+#~ msgid "Presence of CO<sub>2</sub> in the test tube, turns the blue BTB indicator to green."
+#~ msgstr "Presence of CO<sub>2</sub> in the test tube, turns the blue BTB indicator to green."
 
 #, fuzzy
 #~ msgid "Presence of CO<sub>2</sub> in the test tube, turns limewater milky."
 #~ msgstr "Presence of CO<sub>2</sub> in the test tube, turns limewater milky."
 
 #, fuzzy
-#~ msgid ""
-#~ "Level of water in the delivery tube rises up due to the release of "
-#~ "CO<sub>2</sub> in the conical flask during the respiration of the "
-#~ "grasshoppers."
-#~ msgstr ""
-#~ "Level of water in the delivery tube rises up due to the release of "
-#~ "CO<sub>2</sub> in the conical flask during the respiration of the "
-#~ "grasshoppers."
+#~ msgid "Level of water in the delivery tube rises up due to the release of CO<sub>2</sub> in the conical flask during the respiration of the grasshoppers."
+#~ msgstr "Level of water in the delivery tube rises up due to the release of CO<sub>2</sub> in the conical flask during the respiration of the grasshoppers."
 
 #, fuzzy
-#~ msgid ""
-#~ "Level of water in the delivery tube rises up due to the release of "
-#~ "CO<sub>2</sub> in the conical flask during the respiration of the seeds."
-#~ msgstr ""
-#~ "Level of water in the delivery tube rises up due to the release of "
-#~ "CO<sub>2</sub> in the conical flask during the respiration of the seeds."
+#~ msgid "Level of water in the delivery tube rises up due to the release of CO<sub>2</sub> in the conical flask during the respiration of the seeds."
+#~ msgstr "Level of water in the delivery tube rises up due to the release of CO<sub>2</sub> in the conical flask during the respiration of the seeds."
