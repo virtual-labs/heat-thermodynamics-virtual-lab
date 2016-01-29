@@ -1,0 +1,26 @@
+chart {
+	display: block;
+	width: 400px;
+	height: 200px;
+}
+#graphDiv {
+	position: absolute;
+    left: 5.8%;
+    top: 5%;
+    opacity: 0.9;
+    height: 87%;
+    width: 90%;
+}
+#graphDiv canvas {
+	width: 96%;
+}
+#alphaLabel {
+	display: inline;
+}
+#alphaValue {
+	display: inline;
+}
+.canvasjs-chart-canvas {
+	width: 100% !important;	
+	cursor: default;
+}

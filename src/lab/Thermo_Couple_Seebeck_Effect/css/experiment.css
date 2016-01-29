@@ -1,0 +1,23 @@
+chart {
+  display: block;
+  width: 400px;
+  height: 200px;
+}
+
+md-select {
+  margin: -5% 0% -5% 30%;
+  !important;
+}
+
+#graphDiv1 {
+  padding: 28% 89% 8% 0%;
+  margin: -37% -1% 0% 1%;
+}
+
+.canvasjs-chart-canvas {
+  margin: -54% 2% -39% -44% !important;
+}
+
+.canvasjs-chart-container {
+  margin: -231% 33% -30% 16% !important;
+}

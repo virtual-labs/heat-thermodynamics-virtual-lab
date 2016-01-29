@@ -284,7 +284,7 @@ function radiusDiscSliderFN(scope) {
 function resultCheck(scope) {
     var _radio_value=scope.temp.data;
     if ( _radio_value=="T4" ) { /** Checking the corresponding result using radio buttons */
-        scope.temperature="T4 :"; /** If _radio_value is "T4" it will show the changing surrounding temperature */
+        scope.temperature="T4:"; /** If _radio_value is "T4" it will show the changing surrounding temperature */
         scope.temperature_value=(current_surrounding_temperature+count_incrmnt).toPrecision(4)+" (℃)"; 
         black_body_stage.getChildByName("indicatorText").text=(current_surrounding_temperature+count_incrmnt).toPrecision(4);
         radio_flag=true; /** Setting the radio_flag true to show the changing surrounding temperature */
@@ -293,7 +293,7 @@ function resultCheck(scope) {
             black_body_stage.getChildByName("indicatorText").text=current_surrounding_temperature;
         }
     } else {
-        scope.temperature=_radio_value+" :"; /** Passing the value to the result */
+        scope.temperature=_radio_value+":"; /** Passing the value to the result */
         scope.temperature_value=scope.waterTemp+" (℃)";
         black_body_stage.getChildByName("indicatorText").text=scope.waterTemp;
         radio_flag=false; /** Setting the radio_flag false to show the current surrounding temperature */

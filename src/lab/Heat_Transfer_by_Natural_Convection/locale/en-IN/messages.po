@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d\n"
-"POT-Creation-Date: 2015-12-28 13:04+0530\n"
-"PO-Revision-Date: 2016-01-22 09:20+0530\n"
+"POT-Creation-Date: 2016-01-27 11:18+0530\n"
+"PO-Revision-Date: 2016-01-27 11:19+0530\n"
 "Last-Translator: \n"
 "Language-Team: d\n"
 "Language: hi\n"
@@ -15,159 +15,261 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help1"
-msgstr "Set the water temperature using \"Water temperature \" slider."
+msgstr "Select the material from the dropdown box."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help2"
-msgstr ""
-"Set the surrounding  temperature using \"Surrounding  temperature\" slider."
+msgstr "Set the width of wooden box using slider, 'Width of wooden box'."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help3"
-msgstr "Set the mass of the disc using \"Mass of the disc \" slider."
+msgstr "Set the height of wooden box using slider, Height of wooden box'."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help4"
-msgstr "Set the radius of the disc using \" Radius of the disc \" slider."
+msgstr "Set the diameter of cylinder using slider, 'Diameter of Cylinder'."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help5"
-msgstr "Click \"POWER ON\" button to switch on the device."
+msgstr "Set the length of cylinder using slider, 'Length of Cylinder'."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help6"
-msgstr ""
-"Click on the \"FIT THE DISC\" Button to fit the disc in the correct position."
+msgstr "Set the thickness of cylinder using slider, 'Thickness of Cylinder'."
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "help7"
-msgstr ""
-"Click on the \"Cross-sectional View \" Check box to show the cross-sectional "
-"view."
+msgstr "To show cross section view of wooden box use check box."
 
-#: experiment.js:125
+#: experiment.js:326
+msgid "help8"
+msgstr ""
+"Select any one of temperature mode( 1 to 6 ) by click on right/left arrows "
+"in apparatus."
+
+#: experiment.js:326
+msgid "help9"
+msgstr "Set voltage and current by click on arrows near to the round switch."
+
+#: experiment.js:326
+msgid "help10"
+msgstr "Power on apparatus by click on 'POWER ON' button."
+
+#: experiment.js:326
 msgid "Next"
 msgstr "Next"
 
-#: experiment.js:125
+#: experiment.js:326
 msgid "Close"
 msgstr "Close"
 
-#: experiment.js:126
-msgid "Black Body Radiation"
-msgstr "Black Body Radiation"
+#: experiment.js:327
+msgid "Heat Transfer by Natural Convection"
+msgstr "Heat Transfer by Natural Convection"
 
-#: experiment.js:127
+#: experiment.js:328
 msgid "Variables"
 msgstr "Variables"
 
-#: experiment.js:128
-msgid "Water Temperature: "
-msgstr "Water Temperature: "
+#: experiment.js:329
+msgid "Result"
+msgstr "Result"
 
-#: experiment.js:129
-msgid "Surrounding Temperature: "
-msgstr "Surrounding Temperature: "
-
-#: experiment.js:130
-msgid "Mass of Disc: "
-msgstr "Mass of Disc: "
-
-#: experiment.js:131
-msgid "Radius of Disc: "
-msgstr "Radius of Disc: "
-
-#: experiment.js:132
-msgid "Power On"
-msgstr "Power On"
-
-#: experiment.js:133 experiment.js:182
-msgid "Reset"
-msgstr "Reset"
-
-#: experiment.js:135
-msgid "Fit the Disc"
-msgstr "Fit the Disc"
-
-#: experiment.js:136
-msgid "Cross-sectional View"
-msgstr "Cross-sectional View"
-
-#: experiment.js:137
-msgid "Measurements"
-msgstr "Measurements"
-
-#: experiment.js:138
+#: experiment.js:330
 msgid "copyright"
 msgstr "Copyright © Amrita University 2009 - 2015"
 
-#: experiment.js:140
-msgid "g"
-msgstr ""
+#: experiment.js:331
+msgid "Choose Material:"
+msgstr "Choose Material:"
 
-#: experiment.js:141
+#: experiment.js:332
 msgid "cm"
-msgstr ""
+msgstr "cm"
 
-#: experiment.js:181
-msgid "Power on"
-msgstr "Power on"
+#: experiment.js:333 experiment.js:345
+msgid "Aluminium"
+msgstr "Aluminium"
 
-#~ msgid "Select Temperature Probe"
-#~ msgstr "Select Temperature Probe"
+#: experiment.js:334
+msgid "Width of wooden box:"
+msgstr "Width of wooden box:"
 
-#~ msgid "Error"
-#~ msgstr "Error"
+#: experiment.js:335
+msgid "Height of wooden box:"
+msgstr "Height of wooden box:"
 
-#~ msgid "Voltage of both heaters must be same."
-#~ msgstr "Voltage of both heaters must be same."
+#: experiment.js:336
+msgid "Diameter of Cylinder:"
+msgstr "Diameter of Cylinder:"
 
-#~ msgid "Okay"
-#~ msgstr "Okay"
+#: experiment.js:337
+msgid "Length of the Cylinder:"
+msgstr "Length of the Cylinder:"
 
-#~ msgid "Heat Transfer by Radiation"
-#~ msgstr "Heat Transfer by Radiation"
+#: experiment.js:338
+msgid "Thickness of Cylinder:"
+msgstr "Thickness of Cylinder:"
 
-#~ msgid "Choose Material:"
-#~ msgstr "Choose Material:"
+#: experiment.js:339
+msgid "Power On"
+msgstr "Power On"
 
-#~ msgid "Aluminium"
-#~ msgstr "Aluminium"
+#: experiment.js:340
+msgid "Reset"
+msgstr "Reset"
 
-#~ msgid "Diameter of the plates (cm):"
-#~ msgstr "Diameter of the plates (cm):"
+#: experiment.js:341
+msgid "Show cross section"
+msgstr "Show cross section"
 
-#~ msgid "Thickness of the plates (cm):"
-#~ msgstr "Thickness of the plates (cm):"
+#: experiment.js:342
+msgid "Nusselt number(N):"
+msgstr "Nusselt number(N):"
 
-#~ msgid "Chamber temperature (C):"
-#~ msgstr "Chamber temperature (C):"
+#: experiment.js:343
+msgid "Heat transfer coefficient(h):"
+msgstr "Heat transfer coefficient(h):"
 
-#~ msgid "Show Result"
-#~ msgstr "Show Result"
+#: experiment.js:348
+msgid "Copper"
+msgstr "Copper"
 
-#~ msgid "Emissivity of the test plate:"
-#~ msgstr "Emissivity of the test plate:"
+#: experiment.js:351
+msgid "Iron"
+msgstr "Iron"
 
-#~ msgid "Brass"
-#~ msgstr "Brass"
+#: experiment.js:354
+msgid "Silver"
+msgstr "Silver"
 
-#~ msgid "Iron"
-#~ msgstr "Iron"
+#: experiment.js:357
+msgid "Steel"
+msgstr "Steel"
 
-#~ msgid "Steel"
-#~ msgstr "Steel"
+#: experiment.js:568
+msgid "POWER OFF"
+msgstr "POWER OFF"
 
-#~ msgid "Copper"
-#~ msgstr "Copper"
+#: experiment.js:588
+msgid "POWER ON"
+msgstr "POWER ON"
 
 #~ msgid "START"
 #~ msgstr "START"
 
-#~ msgid "STOP"
-#~ msgstr "STOP"
+#~ msgid "MM     SS     MS"
+#~ msgstr "MM     SS     MS"
+
+#~ msgid "help11"
+#~ msgstr "Select check box, 'Show result' gives the result."
+
+#~ msgid "Deflection Magnetometer"
+#~ msgstr "Deflection Magnetometer"
+
+#~ msgid "Vibration Magnetometer"
+#~ msgstr "Vibration Magnetometer"
+
+#~ msgid "Mass of the magnet:"
+#~ msgstr "Mass of the magnet:"
+
+#~ msgid "Breadth of the magnet:"
+#~ msgstr "Breadth of the magnet:"
+
+#~ msgid "g"
+#~ msgstr "g"
+
+#~ msgid "Show Result"
+#~ msgstr "Show Result"
+
+#~ msgid "Place Second Magnet"
+#~ msgstr "Place Second Magnet"
+
+#~ msgid "Position of magnetometer:"
+#~ msgstr "Position of magnetometer:"
+
+#~ msgid "Rotation angle:"
+#~ msgstr "Rotation angle:"
+
+#~ msgid "Select the side:"
+#~ msgstr "Select the side:"
+
+#~ msgid "Distance:"
+#~ msgstr "Distance:"
+
+#~ msgid "Reverse the magnet"
+#~ msgstr "Reverse the magnet"
+
+#~ msgid "Object zoom:"
+#~ msgstr "Object zoom:"
+
+#~ msgid "Time period: "
+#~ msgstr "Time period: "
+
+#~ msgid "Moment of inertia(I): "
+#~ msgstr "Moment of inertia(I): "
+
+#~ msgid "s"
+#~ msgstr "s"
+
+#~ msgid "kgm"
+#~ msgstr "kgm"
+
+#~ msgid "Moment of the magnet(m): "
+#~ msgstr "Moment of the magnet(m): "
+
+#~ msgid "Horizontal intensity: "
+#~ msgstr "Horizontal intensity: "
+
+#~ msgid "Am"
+#~ msgstr "Am"
+
+#~ msgid "T"
+#~ msgstr "T"
+
+#~ msgid "Magnetic Field Along The Axis of A Circular Coil Carrying Current"
+#~ msgstr "Magnetic Field Along The Axis of A Circular Coil Carrying Current"
+
+#~ msgid "Number of turns of the coil"
+#~ msgstr "Number of turns of the coil"
+
+#~ msgid "Initial Adjustment"
+#~ msgstr "Initial Adjustment"
+
+#~ msgid "Insert Key"
+#~ msgstr "Insert Key"
+
+#~ msgid "Radius of the coil "
+#~ msgstr "Radius of the coil "
+
+#~ msgid "Compass box position "
+#~ msgstr "Compass box position "
+
+#~ msgid "Adjust rheostat"
+#~ msgstr "Adjust rheostat"
+
+#~ msgid "Rotate compass box"
+#~ msgstr "Rotate compass box"
+
+#~ msgid "Rotate apparatus"
+#~ msgstr "Rotate apparatus"
+
+#~ msgid "Magnetic field at x, B(T)"
+#~ msgstr "Magnetic field at x, B(T)"
+
+#~ msgid "Show Normal"
+#~ msgstr "Show Normal"
+
+#~ msgid "Zoom compass"
+#~ msgstr "Zoom compass"
+
+#~ msgid "Remove Key"
+#~ msgstr "Remove Key"
+
+#~ msgid "Circular Coil"
+#~ msgstr "Circular Coil"
 
 #~ msgid "Temperature (Y axis) Vs Time (X axis)"
 #~ msgstr "Temperature (Y axis) Vs Time (X axis)"
@@ -175,14 +277,23 @@ msgstr "Power on"
 #~ msgid "Time (in minutes)"
 #~ msgstr "Time (in minutes)"
 
+#~ msgid "Temperature"
+#~ msgstr "Temperature"
+
 #~ msgid "Start Experiment"
 #~ msgstr "Start Experiment"
+
+#~ msgid "Measurements"
+#~ msgstr "Measurements"
 
 #~ msgid "Thermometer reading:"
 #~ msgstr "Thermometer reading:"
 
 #~ msgid "Show Graph"
 #~ msgstr "Show Graph"
+
+#~ msgid "Brass"
+#~ msgstr "Brass"
 
 #~ msgid "Water"
 #~ msgstr "Water"
@@ -199,9 +310,6 @@ msgstr "Power on"
 #~ msgid "Select liquid:"
 #~ msgstr "Select liquid:"
 
-#~ msgid "Silver"
-#~ msgstr "Silver"
-
 #~ msgid "Milk"
 #~ msgstr "Milk"
 
@@ -217,14 +325,20 @@ msgstr "Power on"
 #~ msgid "Stop Heating"
 #~ msgstr "Stop Heating"
 
+#~ msgid "STOP"
+#~ msgstr "STOP"
+
 #~ msgid "Stop Plotting"
 #~ msgstr "Stop Plotting"
 
 #~ msgid "Thermometer reading: "
 #~ msgstr "Thermometer reading:"
 
-#~ msgid "Choose material:"
-#~ msgstr "Choose material:"
+#~ msgid "Emissivity of the test plate:"
+#~ msgstr "Emissivity of the test plate:"
+
+#~ msgid "Chamber temperature :"
+#~ msgstr "Chamber temperature :"
 
 #~ msgid "Show result"
 #~ msgstr "Show result"
@@ -243,9 +357,6 @@ msgstr "Power on"
 
 #~ msgid "Gravitational Mass (in g):"
 #~ msgstr "Gravitational Mass (in g):"
-
-#~ msgid "Mass of Object, m(g):"
-#~ msgstr "Mass of Object, m(g):"
 
 #~ msgid "Volume (in ml):"
 #~ msgstr "Volume (in ml):"
@@ -361,10 +472,6 @@ msgstr "Power on"
 #, fuzzy
 #~ msgid "Number of grasshoppers:"
 #~ msgstr "Number of grasshoppers:"
-
-#, fuzzy
-#~ msgid "Select the animal:"
-#~ msgstr "Select the animal:"
 
 #, fuzzy
 #~ msgid "Select the indicator:"

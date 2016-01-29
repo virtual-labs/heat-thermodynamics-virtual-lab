@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d\n"
-"POT-Creation-Date: 2015-12-28 13:04+0530\n"
-"PO-Revision-Date: 2016-01-22 09:20+0530\n"
+"POT-Creation-Date: 2015-11-03 14:44+0530\n"
+"PO-Revision-Date: 2015-11-03 14:57+0530\n"
 "Last-Translator: \n"
 "Language-Team: d\n"
 "Language: hi\n"
@@ -15,159 +15,174 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help1"
-msgstr "Set the water temperature using \"Water temperature \" slider."
+msgstr "तारों कनेक्ट।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help2"
-msgstr ""
-"Set the surrounding  temperature using \"Surrounding  temperature\" slider."
+msgstr "थर्मिस्टर लटकती बदलें"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help3"
-msgstr "Set the mass of the disc using \"Mass of the disc \" slider."
+msgstr "तापमान स्लाइडर का उपयोग कर तापमान को समायोजित करें।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help4"
-msgstr "Set the radius of the disc using \" Radius of the disc \" slider."
+msgstr "वोल्टेज स्लाइडर का उपयोग वोल्टेज समायोजित करें।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help5"
-msgstr "Click \"POWER ON\" button to switch on the device."
+msgstr "बटन पर पावर क्लिक करते समय प्रयोग शुरू होता है।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help6"
 msgstr ""
-"Click on the \"FIT THE DISC\" Button to fit the disc in the correct position."
+"शो सर्किट आरेख सर्किट आरेख और दिखाएँ ग्राफ प्रदर्शित करता ग्राफ को प्रदर्शित करता है।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "help7"
-msgstr ""
-"Click on the \"Cross-sectional View \" Check box to show the cross-sectional "
-"view."
+msgstr "चेकबॉक्स 'शो परिणाम' परिणाम पढ़ने देता है।"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "Next"
-msgstr "Next"
+msgstr "अगला"
 
-#: experiment.js:125
+#: experiment.js:237
 msgid "Close"
-msgstr "Close"
+msgstr "बंद करे"
 
-#: experiment.js:126
-msgid "Black Body Radiation"
-msgstr "Black Body Radiation"
+#: experiment.js:238
+msgid "Characteristics of Thermistor"
+msgstr "थर्मिस्टर के लक्षण"
 
-#: experiment.js:127
+#: experiment.js:239
 msgid "Variables"
-msgstr "Variables"
+msgstr "चर"
 
-#: experiment.js:128
-msgid "Water Temperature: "
-msgstr "Water Temperature: "
+#: experiment.js:240
+msgid "Choose Thermistor:"
+msgstr "थर्मिस्टर चुनें:"
 
-#: experiment.js:129
-msgid "Surrounding Temperature: "
-msgstr "Surrounding Temperature: "
+#: experiment.js:241
+msgid "Temperature"
+msgstr "तापमान"
 
-#: experiment.js:130
-msgid "Mass of Disc: "
-msgstr "Mass of Disc: "
+#: experiment.js:242
+msgid "Voltage"
+msgstr "वोल्टेज"
 
-#: experiment.js:131
-msgid "Radius of Disc: "
-msgstr "Radius of Disc: "
+#: experiment.js:243
+msgid "Show Circuit Diagram"
+msgstr "शो सर्किट आरेख"
 
-#: experiment.js:132
+#: experiment.js:244
+msgid "Show Graph"
+msgstr "ग्राफ़ दिखाएं"
+
+#: experiment.js:245 experiment.js:335
 msgid "Power On"
-msgstr "Power On"
+msgstr "पावर ऑन"
 
-#: experiment.js:133 experiment.js:182
+#: experiment.js:246 experiment.js:336
+msgid "Power Off"
+msgstr "बिजली बंद"
+
+#: experiment.js:248
+msgid "Show Result"
+msgstr "परिणाम दिखाओ"
+
+#: experiment.js:249
 msgid "Reset"
-msgstr "Reset"
+msgstr "रीसेट"
 
-#: experiment.js:135
-msgid "Fit the Disc"
-msgstr "Fit the Disc"
+#: experiment.js:250
+msgid "alpha"
+msgstr "अल्फा"
 
-#: experiment.js:136
-msgid "Cross-sectional View"
-msgstr "Cross-sectional View"
+#: experiment.js:252
+msgid "Result"
+msgstr "परिणाम"
 
-#: experiment.js:137
-msgid "Measurements"
-msgstr "Measurements"
-
-#: experiment.js:138
+#: experiment.js:253
 msgid "copyright"
-msgstr "Copyright © Amrita University 2009 - 2015"
+msgstr "2015 - 2009 कॉपीराइट © अमृता विश्वविद्यालय"
 
-#: experiment.js:140
-msgid "g"
-msgstr ""
+#: experiment.js:254 experiment.js:257
+msgid "Thermistor 1"
+msgstr "थर्मिस्टर 1"
 
-#: experiment.js:141
-msgid "cm"
-msgstr ""
+#: experiment.js:260
+msgid "Thermistor 2"
+msgstr "थर्मिस्टर 2"
 
-#: experiment.js:181
-msgid "Power on"
-msgstr "Power on"
+#: experiment.js:263
+msgid "Thermistor 3"
+msgstr "थर्मिस्टर 3"
 
-#~ msgid "Select Temperature Probe"
-#~ msgstr "Select Temperature Probe"
+#: experiment.js:266
+msgid "Thermistor 4"
+msgstr "थर्मिस्टर 4"
 
-#~ msgid "Error"
-#~ msgstr "Error"
+#~ msgid "Tangent Galvanometer"
+#~ msgstr "Tangent Galvanometer"
 
-#~ msgid "Voltage of both heaters must be same."
-#~ msgstr "Voltage of both heaters must be same."
+#~ msgid "Number of turns of the coil"
+#~ msgstr "Number of turns of the coil"
 
-#~ msgid "Okay"
-#~ msgstr "Okay"
+#~ msgid "Initial Setup"
+#~ msgstr "Initial Setup"
 
-#~ msgid "Heat Transfer by Radiation"
-#~ msgstr "Heat Transfer by Radiation"
+#~ msgid "Insert Key"
+#~ msgstr "Insert Key"
 
-#~ msgid "Choose Material:"
-#~ msgstr "Choose Material:"
+#~ msgid "Reverse Current"
+#~ msgstr "Reverse Current"
 
-#~ msgid "Aluminium"
-#~ msgstr "Aluminium"
+#~ msgid "Radius of the coil "
+#~ msgstr "Radius of the coil "
 
-#~ msgid "Diameter of the plates (cm):"
-#~ msgstr "Diameter of the plates (cm):"
+#~ msgid "Adjust rheostat"
+#~ msgstr "Adjust rheostat"
 
-#~ msgid "Thickness of the plates (cm):"
-#~ msgstr "Thickness of the plates (cm):"
+#~ msgid "Rotate compass box"
+#~ msgstr "Rotate compass box"
 
-#~ msgid "Chamber temperature (C):"
-#~ msgstr "Chamber temperature (C):"
+#~ msgid "Rotate apparatus"
+#~ msgstr "Rotate apparatus"
 
-#~ msgid "Show Result"
-#~ msgstr "Show Result"
+#~ msgid "cm"
+#~ msgstr "cm"
 
-#~ msgid "Emissivity of the test plate:"
-#~ msgstr "Emissivity of the test plate:"
+#~ msgid "Horizontal Intensity"
+#~ msgstr "Horizontal Intensity"
 
-#~ msgid "Brass"
-#~ msgstr "Brass"
+#~ msgid "Reduction Factor"
+#~ msgstr "Reduction Factor"
 
-#~ msgid "Iron"
-#~ msgstr "Iron"
+#~ msgid "Show Normal"
+#~ msgstr "Show Normal"
 
-#~ msgid "Steel"
-#~ msgstr "Steel"
+#~ msgid "Remove Key"
+#~ msgstr "Remove Key"
 
-#~ msgid "Copper"
-#~ msgstr "Copper"
+#~ msgid "Zoom compass"
+#~ msgstr "Zoom compass"
 
-#~ msgid "START"
-#~ msgstr "START"
+#~ msgid "Magnetic Field Along The Axis of A Circular Coil Carrying Current"
+#~ msgstr "Magnetic Field Along The Axis of A Circular Coil Carrying Current"
 
-#~ msgid "STOP"
-#~ msgstr "STOP"
+#~ msgid "Initial Adjustment"
+#~ msgstr "Initial Adjustment"
+
+#~ msgid "Compass box position "
+#~ msgstr "Compass box position "
+
+#~ msgid "Magnetic field at x, B(T)"
+#~ msgstr "Magnetic field at x, B(T)"
+
+#~ msgid "Circular Coil"
+#~ msgstr "Circular Coil"
 
 #~ msgid "Temperature (Y axis) Vs Time (X axis)"
 #~ msgstr "Temperature (Y axis) Vs Time (X axis)"
@@ -175,14 +190,20 @@ msgstr "Power on"
 #~ msgid "Time (in minutes)"
 #~ msgstr "Time (in minutes)"
 
+#~ msgid "START"
+#~ msgstr "START"
+
 #~ msgid "Start Experiment"
 #~ msgstr "Start Experiment"
+
+#~ msgid "Measurements"
+#~ msgstr "Measurements"
 
 #~ msgid "Thermometer reading:"
 #~ msgstr "Thermometer reading:"
 
-#~ msgid "Show Graph"
-#~ msgstr "Show Graph"
+#~ msgid "Brass"
+#~ msgstr "Brass"
 
 #~ msgid "Water"
 #~ msgstr "Water"
@@ -198,6 +219,12 @@ msgstr "Power on"
 
 #~ msgid "Select liquid:"
 #~ msgstr "Select liquid:"
+
+#~ msgid "Copper"
+#~ msgstr "Copper"
+
+#~ msgid "Aluminium"
+#~ msgstr "Aluminium"
 
 #~ msgid "Silver"
 #~ msgstr "Silver"
@@ -217,14 +244,41 @@ msgstr "Power on"
 #~ msgid "Stop Heating"
 #~ msgstr "Stop Heating"
 
+#~ msgid "STOP"
+#~ msgstr "STOP"
+
 #~ msgid "Stop Plotting"
 #~ msgstr "Stop Plotting"
 
 #~ msgid "Thermometer reading: "
 #~ msgstr "Thermometer reading:"
 
+#~ msgid "Power on"
+#~ msgstr "Power on"
+
+#~ msgid "Emissivity of the test plate:"
+#~ msgstr "Emissivity of the test plate:"
+
+#~ msgid "Iron"
+#~ msgstr "Iron"
+
+#~ msgid "Steel"
+#~ msgstr "Steel"
+
+#~ msgid "Heat Transfer by Radiation"
+#~ msgstr "Heat Transfer by Radiation"
+
 #~ msgid "Choose material:"
 #~ msgstr "Choose material:"
+
+#~ msgid "Diameter of the plates (cm):"
+#~ msgstr "Diameter of the plates (cm):"
+
+#~ msgid "Thickness of the plates (cm):"
+#~ msgstr "Thickness of the plates (cm):"
+
+#~ msgid "Chamber temperature :"
+#~ msgstr "Chamber temperature :"
 
 #~ msgid "Show result"
 #~ msgstr "Show result"
