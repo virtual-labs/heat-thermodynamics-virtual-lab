@@ -246,10 +246,8 @@ function startExperiment(scope) {
 		scope.result_disable = false;
 		poweron_flag = true;
 		scope.controls_disable = true; 
-		pause_flag = false;		
-		timer = setInterval(function() {
-			expWatch(scope);
-		}, 1);	/** The reaction will starts in the timer */	
+		pause_flag = false;	
+		timer = setInterval(expWatch,timer_interval); /** Check time equal to 20 minutes */ 		
 	} else {		
 		window.location.reload(); /** Reset the experiment */
 	}
@@ -311,6 +309,7 @@ function startReaction(scope) {
 			soldifyWax(); /** Material is wax */
 			break;
 	}
+	clearInterval(timer)
 }
 
 /** Soldify naphtalene when material naphtalene is selected, alpha of the material increase in an interval */
