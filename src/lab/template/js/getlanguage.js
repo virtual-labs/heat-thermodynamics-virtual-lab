@@ -8,8 +8,12 @@ function getParameterByName(name) {
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 /**set default language as English*/
-CheckFileExists(window.location.pathname+"locale/"+language+"/messages.po");
-
+CheckFileExists(filepath(window.location.href)+"locale/"+language+"/messages.po");
+function filepath(path){
+var url = location.href;
+url = url.substring(0, url.lastIndexOf("/") + 1);
+return url;
+}
 function CheckFileExists(url){
 	if(language==""){
 		language="en-IN"; 

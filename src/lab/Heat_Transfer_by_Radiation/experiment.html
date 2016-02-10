@@ -6,45 +6,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-<link rel='stylesheet' href='../common/assets/css/fonts.googleapis.css'>
-<link rel="stylesheet" href="../common/bower_components/angular-material/angular-material.css"/>
-<link rel="stylesheet" href="../common/assets/css/app.css"/>
-<link rel="stylesheet" href="css/experiment.css"/>
-<script src="../common/js/createjs-2013.12.12.min.js"></script>
-<script src="../common/js/easeljs-0.7.0.min.js"></script>
-<script src="../common/bower_components/angular/angular.js"></script>
-<script src="../common/bower_components/angular-animate/angular-animate.js"></script>
-<script src="../common/bower_components/angular-aria/angular-aria.js"></script>
-<script src="../common/bower_components/angular-chart/angular-charts.min.js"></script>
-<script src="../common/bower_components/angular-fullscreen/angular-fullscreen.js"></script>
-<script src="../common/bower_components/ui-bootstrap-tpls/ui-bootstrap-tpls-0.11.2.min.js"></script>
-<script src="../common/bower_components/dialogs/dialogs.min.js"></script>
-<script src="../common/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="../common/bower_components/angular-translate/angular-translate.min.js"></script>
+<link rel='stylesheet' href='../template/assets/css/fonts.googleapis.css'>
+<link rel="stylesheet" href="../template/bower_components/angular-material/angular-material.css" />
+<link rel="stylesheet" href="../template/assets/css/app.css" />
+<link rel="stylesheet" href="css/experiment.css" />
 
-<link rel="stylesheet" href="../common/assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="../common/assets/css/dialogs.css">        
-        
-<script src="../common/js/Gettext.js"></script>
-<script type="text/javascript" src="../common/bower_components/angular-material/angular-material.js"></script>
-<script src="../common/js/getlanguage.js"></script>
-<script src="./src/user_controller.js"></script>
-<script src="./src/experiment.js"></script>
 <script type="text/javascript">
     angular
     .module('starterApp', ['ngMaterial','users'])
     .config(function($mdThemingProvider, $mdIconProvider){
         $mdIconProvider
-            .icon("menu"       , "../common/assets/svg/menu.svg"        , 24)
-            .icon("fullscreen"       , "../common/assets/icons/Icon3.svg", 24)
-            .icon("help"      , "../common/assets/icons/Icon2.svg", 24);
+            .icon("menu"       , "../template/assets/svg/menu.svg"        , 24)
+            .icon("fullscreen"       , "../template/assets/icons/Icon3.svg", 24)
+            .icon("help"      , "../template/assets/icons/Icon2.svg", 24);
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue')
                 .accentPalette('red');
     });
 </script>
 </head>
-
 <body style="background-color: #f2f2f2;" ng-app="starterApp" ng-controller="UserController as ul">
 <md-toolbar class="md-toolbar-tools" id="main">
     <md-button class="md-icon-button" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
@@ -131,6 +111,5 @@
     </div>
   </md-sidenav>
 </md-content>
-<script src="../common/js/stopwatch.js"></script>
 </body>
 </html>

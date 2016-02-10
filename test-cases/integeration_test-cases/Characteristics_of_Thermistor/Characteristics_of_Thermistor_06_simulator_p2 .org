@@ -1,0 +1,24 @@
+* Author: Anisha  
+* Date created: 09 Feb 2016
+* Environment:
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objectives:
+ - To view the simulator of Character of Thermistor
+* Pre Conditions:
+   - Refer to first test case [[https://github.com/CreateAmrita/heat-thermodynamics-virtual-lab/test-cases/integration_test-cases/Characteristics_of_Thermistor/Characteristics_of_Thermistor_01_usability_smk.org][Characteristics_of_Thermistor_01_usability_smk.org]]
+* Post Conditions:
+  - Nil
+* Test Steps
+  1. Choose the thermistor type from the dropdown box.   
+  2. Click on the 'Show Circuit Diagram' check box for the circuit diagram.
+  3. Connect the wires according to the circuit diagram by dragging from the connection points.
+* Expected Results
+  1. Change the thermistor accordingly.
+  2. Display the circuit diagram on the screen.
+  3. Make connection as per the circuit diagram. Lines will appear for the wires.
+  4. Content should be present with no distortions and Junk's characters.
+* Reviews/ Comments

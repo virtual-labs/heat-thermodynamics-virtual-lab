@@ -1,0 +1,28 @@
+* Author: Anisha  
+* Date created: 09 Feb 2016
+* Environment:
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objectives:
+ - To view the simulator of Character of Thermistor
+* Pre Conditions:
+   - Refer to first test case [[https://github.com/CreateAmrita/heat-thermodynamics-virtual-lab/test-cases/integration_test-cases/Characteristics_of_Thermistor/Characteristics_of_Thermistor_01_usability_smk.org][Characteristics_of_Thermistor_01_usability_smk.org]]
+* Post Conditions:
+  - Nil
+* Test Steps
+  1. Drag the mouse from the connection points and drop by hitting the end connection point.
+  2. Connect all the wires, by drag and drop.
+  3. Click on the 'Power On'  button
+  4. Adjust the Voltage using slider.
+  5. Click on the 'show graph' check box to show the graph
+* Expected Results
+  1. The lines will draw from the initial position to the final and a wire will get display.
+  2. 'Power On' button will get enable.
+  3. The voltage slider, temperature slider, 'show graph' button and the reset button will get enable.
+  4. The voltage will change on the voltmeter and the battery.
+  5. No plot will occur in graph.
+  
+* Reviews/ Comments

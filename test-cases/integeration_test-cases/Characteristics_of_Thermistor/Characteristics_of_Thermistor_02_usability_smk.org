@@ -1,0 +1,23 @@
+* Author: Anisha  
+* Date created: 09 Feb 2016
+* Environment:
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objectives:
+ - To view the experiment Character of Thermistor
+* Pre Conditions:
+   - Refer to first test case [[https://github.com/CreateAmrita/heat-thermodynamics-virtual-lab/test-cases/integration_test-cases/Characteristics_of_Thermistor/Characteristics_of_Thermistor_01_usability_smk.org][Characteristics_of_Thermistor_01_usability_smk.org]]
+* Post Conditions:
+  - Nil
+* Test Steps
+  1. Click on Character of Thermistor experiment link
+  2. It should re-direct to the experiment page
+* Expected Results
+  1. Content should be present with no distortions and Junk's characters.
+  2. The page will opened with a simulation tab and an animation tab.
+  3. The images and icon in the page should be displayed.
+* Reviews/ Comments
+
