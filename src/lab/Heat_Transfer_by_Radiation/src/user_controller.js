@@ -1,5 +1,5 @@
 (function(){
-    angular
+     angular
     .module('users',['FBAngular','ui.bootstrap','dialogs.main','pascalprecht.translate'])
     .controller('UserController', [
         '$mdSidenav', '$mdBottomSheet', '$log', '$q','$scope','$element','Fullscreen','$mdToast','$animate', '$translate','dialogs',
@@ -12,7 +12,6 @@
 		dialogsProvider.setSize('sm');
         $translateProvider.translations(language,{DIALOGS_ERROR:(_("Error")),DIALOGS_ERROR_MSG:(_("Voltage of both heaters must be same.")),DIALOGS_CLOSE:(_("Okay"))}),$translateProvider.preferredLanguage(language);
 	}]);
-	   
     /**
     * Main Controller for the Angular Material Starter App
     * @param $scope
